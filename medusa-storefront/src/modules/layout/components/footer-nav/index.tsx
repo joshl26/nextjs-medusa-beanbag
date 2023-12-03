@@ -15,7 +15,7 @@ const FooterNav = () => {
       <div>
         <div>
           <div>
-            <Link href="/">Medusa Store</Link>
+            <Link href="/">The Beanbag Coffee Co.</Link>
           </div>
           <div>
             {product_categories && (
@@ -26,7 +26,6 @@ const FooterNav = () => {
                     if (c.parent_category) {
                       return
                     }
-
                     const children =
                       c.category_children?.map((child) => ({
                         name: child.name,

@@ -5,6 +5,10 @@
   display: flex;
 }
 
+.header_nav {
+  width: 100%;
+}
+
 .button_signin {
   background-color: rgb(var(--landing-background-rgb));
   color: black;

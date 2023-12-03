@@ -31,7 +31,7 @@ const Nav = () => {
 
   return (
     <header className={styles.header}>
-      <nav>
+      <nav className={styles.header_nav}>
         <div className={styles.side_menu}>
           {menuEnabled ? <SideMenu setMenuEnabled={setMenuEnabled} /> : ""}
         </div>

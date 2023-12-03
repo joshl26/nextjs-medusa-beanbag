@@ -1,3 +1,7 @@
+/**
+ * @type {import('next').NextConfig}
+ */
+
 const { withStoreConfig } = require("./store-config")
 const store = require("./store.config.json")
 
