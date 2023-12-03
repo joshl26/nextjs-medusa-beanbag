@@ -41,9 +41,9 @@ const ControlledSearchBox = ({
   }
 
   return (
-    <div {...props} className="w-full">
+    <div {...props} >
       <form action="" noValidate onSubmit={handleSubmit} onReset={handleReset}>
-        <div className="flex items-center justify-between">
+        <div >
           <input
             ref={inputRef}
             autoComplete="off"
@@ -54,13 +54,13 @@ const ControlledSearchBox = ({
             type="search"
             value={value}
             onChange={onChange}
-            className="txt-compact-large h-6 placeholder:text-ui-fg-on-color placeholder:transition-colors focus:outline-none flex-1 bg-transparent "
+            
           />
           {value && (
             <button
               onClick={handleReset}
               type="button"
-              className="items-center justify-center text-ui-fg-on-color focus:outline-none gap-x-2 px-2 txt-compact-large hidden sm:flex"
+              
             >
               <XMarkMini />
               Cancel

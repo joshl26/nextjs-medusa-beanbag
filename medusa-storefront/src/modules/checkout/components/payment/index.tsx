@@ -119,32 +119,31 @@ const Payment = () => {
   }
 
   return (
-    <div className="bg-white px-4 small:px-8">
-      <div className="flex flex-row items-center justify-between mb-6">
+    <div>
+      <div>
         <Heading
           level="h2"
-          className={clx(
-            "flex flex-row text-3xl-regular gap-x-2 items-baseline",
-            {
-              "opacity-50 pointer-events-none select-none":
-                !isOpen && !paymentReady,
-            }
-          )}
+          // className={clx(
+          //   "flex flex-row text-3xl-regular gap-x-2 items-baseline",
+          //   {
+          //     "opacity-50 pointer-events-none select-none":
+          //       !isOpen && !paymentReady,
+          //   }
+          // )}
         >
           Payment
           {!isOpen && paymentReady && <CheckCircleSolid />}
         </Heading>
         {!isOpen && addressReady && shippingReady && (
           <Text>
-            <button onClick={handleEdit} className="text-ui-fg-interactive">
-              Edit
-            </button>
+            <button onClick={handleEdit}>Edit</button>
           </Text>
         )}
       </div>
       <div>
         {cart?.payment_sessions?.length ? (
-          <div className={!editingOtherSteps && isOpen ? "block" : "hidden"}>
+          // <div className={!editingOtherSteps && isOpen ? "block" : "hidden"}>
+          <div>
             <RadioGroup
               value={cart.payment_session?.provider_id || ""}
               onChange={(value: string) => handleChange(value)}
@@ -171,14 +170,14 @@ const Payment = () => {
               name="paymentSession"
               render={({ message }) => {
                 return (
-                  <div className="pt-2 text-rose-500 text-small-regular">
+                  <div>
                     <span>{message}</span>
                   </div>
                 )
               }}
             />
             {cart.payment_session?.provider_id === "stripe" && (
-              <div className="pt-8">
+              <div>
                 <PaymentStripe
                   useFormState={useFormState}
                   setState={setCardFormState}
@@ -190,7 +189,6 @@ const Payment = () => {
               onClick={handleSubmit}
               type="submit"
               size="large"
-              className="mt-6"
               disabled={
                 !cart.payment_session?.provider_id ||
                 (cart.payment_session?.provider_id === "stripe" &&
@@ -202,19 +200,19 @@ const Payment = () => {
             </Button>
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center px-4 py-16 text-gray-900">
+          <div>
             <Spinner />
           </div>
         )}
 
-        <div className={!editingOtherSteps && isOpen ? "hidden" : "block"}>
+        {/* <div className={!editingOtherSteps && isOpen ? "hidden" : "block"}> */}
+
+        <div>
           {cart && cart.payment_session && (
-            <div className="flex items-start gap-x-1 w-full">
-              <div className="flex flex-col w-1/3">
-                <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                  Payment method
-                </Text>
-                <Text className="txt-medium text-ui-fg-subtle">
+            <div>
+              <div>
+                <Text>Payment method</Text>
+                <Text>
                   {paymentInfoMap[cart.payment_session.provider_id]?.title ||
                     cart.payment_session.provider_id}
                 </Text>
@@ -226,12 +224,10 @@ const Payment = () => {
                     <Tooltip content="You can add a user-friendly name and icon for this payment provider in 'src/modules/checkout/components/payment/index.tsx'" />
                   )}
               </div>
-              <div className="flex flex-col w-1/3">
-                <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                  Payment details
-                </Text>
-                <div className="flex gap-2 txt-medium text-ui-fg-subtle items-center">
-                  <Container className="flex items-center h-7 w-fit p-2 bg-ui-button-neutral-hover">
+              <div>
+                <Text>Payment details</Text>
+                <div>
+                  <Container>
                     {paymentInfoMap[cart.payment_session.provider_id]?.icon || (
                       <CreditCard />
                     )}
@@ -247,7 +243,7 @@ const Payment = () => {
           )}
         </div>
       </div>
-      <Divider className="mt-8" />
+      <Divider />
     </div>
   )
 }

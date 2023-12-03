@@ -54,25 +54,21 @@ const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
         <div
           onFocus={() => innerRef.current?.focus()}
           onBlur={() => innerRef.current?.blur()}
-          className={clsx(
-            "relative flex items-center text-base-regular border border-ui-border-base bg-ui-bg-subtle rounded-md hover:bg-ui-bg-field-hover",
-            className,
-            {
-              "text-ui-fg-muted": isPlaceholder,
-            }
-          )}
+          // className={clsx(
+          //   "relative flex items-center text-base-regular border border-ui-border-base bg-ui-bg-subtle rounded-md hover:bg-ui-bg-field-hover",
+          //   className,
+          //   {
+          //     "text-ui-fg-muted": isPlaceholder,
+          //   }
+          // )}
         >
-          <select
-            ref={innerRef}
-            {...props}
-            className="appearance-none flex-1 bg-transparent border-none px-4 py-2.5 transition-colors duration-150 outline-none "
-          >
+          <select ref={innerRef} {...props}>
             <option disabled value="">
               {placeholder}
             </option>
             {children}
           </select>
-          <span className="absolute right-4 inset-y-0 flex items-center pointer-events-none ">
+          <span>
             <ChevronUpDown />
           </span>
         </div>
@@ -82,7 +78,7 @@ const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
             name={props.name}
             render={({ message }) => {
               return (
-                <div className="pt-1 pl-2 text-rose-500 text-xsmall-regular">
+                <div>
                   <span>{message}</span>
                 </div>
               )

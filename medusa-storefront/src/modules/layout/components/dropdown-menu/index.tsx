@@ -6,7 +6,7 @@ import {
 import repeat from "@lib/util/repeat"
 import ProductPreview from "@modules/products/components/product-preview"
 import SkeletonProductPreview from "@modules/skeletons/components/skeleton-product-preview"
-import clsx from "clsx"
+// import clsx from "clsx"
 import { chunk } from "lodash"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
@@ -21,25 +21,20 @@ const DropdownMenu = () => {
     useFeaturedProductsQuery()
 
   return (
-    <div
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-      className="h-full"
-    >
-      <div className="flex items-center h-full">
-        <Popover className="h-full flex">
+    <div onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
+      <div>
+        <Popover>
           <>
-            <Link href="/store" className="relative flex h-full" passHref>
+            <Link href="/store" passHref>
               <Popover.Button
-                className={clsx(
-                  "relative h-full flex items-center transition-all ease-out duration-200 focus:outline-none"
-                )}
+                // className={clsx(
+                //   "relative h-full flex items-center transition-all ease-out duration-200 focus:outline-none"
+                // )}
                 onClick={() => push("/store")}
               >
                 Store
               </Popover.Button>
             </Link>
-
             <Transition
               show={open}
               as={React.Fragment}
@@ -50,30 +45,19 @@ const DropdownMenu = () => {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Popover.Panel
-                static
-                className="absolute top-full inset-x-0 text-sm text-gray-700 z-30 border-y border-gray-200"
-              >
-                <div className="relative bg-white py-8">
-                  <div className="flex items-start content-container">
-                    <div className="flex flex-col flex-1 max-w-[30%]">
-                      <h3 className="text-base-semi text-gray-900 mb-4">
-                        Collections
-                      </h3>
-                      <div className="flex items-start">
+              <Popover.Panel static>
+                <div>
+                  <div>
+                    <div>
+                      <h3>Collections</h3>
+                      <div>
                         {collections &&
                           chunk(collections, 6).map((chunk, index) => {
                             return (
-                              <ul
-                                key={index}
-                                className="min-w-[152px] max-w-[200px] pr-4"
-                              >
+                              <ul key={index}>
                                 {chunk.map((collection) => {
                                   return (
-                                    <div
-                                      key={collection.handle}
-                                      className="pb-3"
-                                    >
+                                    <div key={collection.handle}>
                                       <Link
                                         href={`/collections/${collection.handle}`}
                                         onClick={() => setOpen(false)}
@@ -87,16 +71,11 @@ const DropdownMenu = () => {
                             )
                           })}
                         {loadingCollections &&
-                          repeat(6).map((index) => (
-                            <div
-                              key={index}
-                              className="w-12 h-4 bg-gray-100 animate-pulse"
-                            />
-                          ))}
+                          repeat(6).map((index) => <div key={index} />)}
                       </div>
                     </div>
-                    <div className="flex-1">
-                      <div className="grid grid-cols-3 gap-4">
+                    <div>
+                      <div>
                         {products?.slice(0, 3).map((product) => (
                           <ProductPreview {...product} key={product.id} />
                         ))}

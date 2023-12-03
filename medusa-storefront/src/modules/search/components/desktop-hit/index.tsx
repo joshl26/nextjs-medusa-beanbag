@@ -12,7 +12,7 @@ const DesktopHit = ({ hit }: HitProps) => {
   }
 
   return (
-    <button className="w-full text-left" onClick={go}>
+    <button onClick={go}>
       <Hit hit={hit} />
     </button>
   )

@@ -10,15 +10,15 @@ const ProductRail = ({ collection }: { collection: ProductCollection }) => {
   const { data } = useFeaturedProductsQuery(collection.id)
 
   return (
-    <div className="small:py-12">
-      <div className="content-container py-12">
-        <div className="flex justify-between mb-8">
-          <Text className="txt-xlarge">{collection.title}</Text>
+    <div>
+      <div>
+        <div>
+          <Text>{collection.title}</Text>
           <InteractiveLink href={`/collections/${collection.handle}`}>
             View all
           </InteractiveLink>
         </div>
-        <ul className="grid grid-cols-2 small:grid-cols-3 gap-x-6 gap-y-8">
+        <ul>
           {data &&
             data.map((product) => (
               <li key={product.id}>

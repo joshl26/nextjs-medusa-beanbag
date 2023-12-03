@@ -20,9 +20,7 @@ const DesktopSearchModal = ({
 }: DesktopSearchModalProps) => {
   return (
     <>
-      <button onClick={open} className="flex items-center gap-x-2 h-full">
-        Search
-      </button>
+      <button onClick={open}>Search</button>
 
       <Modal isOpen={state} close={close} size="large" search>
         <Modal.Body>
@@ -30,13 +28,13 @@ const DesktopSearchModal = ({
             indexName={SEARCH_INDEX_NAME}
             searchClient={searchClient}
           >
-            <div className="flex absolute flex-col h-fit">
-              <div className="w-full flex items-center gap-x-2 p-4 bg-[rgba(3,7,18,0.5)] text-ui-fg-on-color backdrop-blur-2xl rounded-rounded">
+            <div>
+              <div>
                 <MagnifyingGlassMini />
                 <SearchBox close={close} />
               </div>
 
-              <div className="flex-1 mt-6 min-h-full">
+              <div>
                 <DesktopHits hitComponent={DesktopHit} close={close} />
               </div>
             </div>

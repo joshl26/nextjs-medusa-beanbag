@@ -70,7 +70,7 @@ const ProfileEmail: React.FC<MyInformationProps> = ({ customer }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit(updateEmail)} className="w-full">
+    <form onSubmit={handleSubmit(updateEmail)} >
       <AccountInfo
         label="Email"
         currentInfo={`${customer.email}`}
@@ -80,7 +80,7 @@ const ProfileEmail: React.FC<MyInformationProps> = ({ customer }) => {
         errorMessage={errorMessage}
         clearState={clearState}
       >
-        <div className="grid grid-cols-1 gap-y-2">
+        <div >
           <Input
             label="Email"
             {...register("email", {

@@ -356,8 +356,8 @@ export const CheckoutProvider = ({ children }: CheckoutProviderProps) => {
         }}
       >
         {isLoading && cart?.id === "" ? (
-          <div className="flex justify-center items-center h-screen">
-            <div className="w-auto">
+          <div>
+            <div>
               <Spinner size={40} />
             </div>
           </div>

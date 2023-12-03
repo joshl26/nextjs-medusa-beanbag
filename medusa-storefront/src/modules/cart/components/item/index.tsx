@@ -20,29 +20,29 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
   const { handle } = item.variant.product
 
   return (
-    <Table.Row className="w-full">
-      <Table.Cell className="!pl-0 p-4 w-24">
+    <Table.Row >
+      <Table.Cell >
         <Link
           href={`/products/${handle}`}
-          className={clx("flex", {
-            "w-16": type === "preview",
-            "small:w-24 w-12": type === "full",
-          })}
+          // className={clx("flex", {
+          //   "w-16": type === "preview",
+          //   "small:w-24 w-12": type === "full",
+          // })}
         >
           <Thumbnail thumbnail={item.thumbnail} size="square" />
         </Link>
       </Table.Cell>
 
-      <Table.Cell className="text-left">
-        <Text className="txt-medium-plus text-ui-fg-base">{item.title}</Text>
+      <Table.Cell >
+        <Text >{item.title}</Text>
         <LineItemOptions variant={item.variant} />
       </Table.Cell>
 
       {type === "full" && (
         <Table.Cell>
-          <div className="flex gap-2">
+          <div >
             <button
-              className="flex items-center gap-x-"
+              
               onClick={() => deleteItem(item.id)}
             >
               <Trash size={18} />
@@ -55,7 +55,7 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
                   quantity: parseInt(value.target.value),
                 })
               }
-              className="w-14 h-10 p-4"
+              
             >
               {Array.from(
                 [
@@ -81,20 +81,20 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
       )}
 
       {type === "full" && (
-        <Table.Cell className="hidden small:table-cell">
+        <Table.Cell >
           <LineItemUnitPrice item={item} region={region} style="tight" />
         </Table.Cell>
       )}
 
-      <Table.Cell className="!pr-0">
+      <Table.Cell >
         <span
-          className={clx("!pr-0", {
-            "flex flex-col items-end h-full justify-center": type === "preview",
-          })}
+          // className={clx("!pr-0", {
+          //   "flex flex-col items-end h-full justify-center": type === "preview",
+          // })}
         >
           {type === "preview" && (
-            <span className="flex gap-x-1 ">
-              <Text className="text-ui-fg-muted">{item.quantity}x </Text>
+            <span >
+              <Text >{item.quantity}x </Text>
               <LineItemUnitPrice item={item} region={region} style="tight" />
             </span>
           )}

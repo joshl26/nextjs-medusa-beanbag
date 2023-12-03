@@ -85,21 +85,18 @@ const AddAddress: React.FC = () => {
 
   return (
     <>
-      <button
-        className="border border-ui-border-base rounded-rounded p-5 min-h-[220px] h-full w-full flex flex-col justify-between"
-        onClick={open}
-      >
-        <span className="text-base-semi">New address</span>
+      <button onClick={open}>
+        <span>New address</span>
         <Plus />
       </button>
 
       <Modal isOpen={state} close={handleClose}>
         <Modal.Title>
-          <Heading className="mb-2">Add address</Heading>
+          <Heading>Add address</Heading>
         </Modal.Title>
         <Modal.Body>
-          <div className="flex flex-col gap-y-2">
-            <div className="grid grid-cols-2 gap-x-2">
+          <div>
+            <div>
               <Input
                 label="First name"
                 {...register("first_name", {
@@ -135,7 +132,7 @@ const AddAddress: React.FC = () => {
               errors={errors}
               autoComplete="address-line2"
             />
-            <div className="grid grid-cols-[144px_1fr] gap-x-2">
+            <div>
               <Input
                 label="Postal code"
                 {...register("postal_code", {
@@ -172,12 +169,10 @@ const AddAddress: React.FC = () => {
               autoComplete="phone"
             />
           </div>
-          {error && (
-            <div className="text-rose-500 text-small-regular py-2">{error}</div>
-          )}
+          {error && <div>{error}</div>}
         </Modal.Body>
         <Modal.Footer>
-          <div className="flex gap-3 mt-4">
+          <div>
             <Button
               variant="secondary"
               onClick={handleClose}
@@ -185,7 +180,7 @@ const AddAddress: React.FC = () => {
             >
               Cancel
             </Button>
-            <Button className="min-h-0" onClick={submit} isLoading={submitting}>
+            <Button onClick={submit} isLoading={submitting}>
               Save
             </Button>
           </div>

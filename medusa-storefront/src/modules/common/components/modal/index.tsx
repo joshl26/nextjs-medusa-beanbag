@@ -19,7 +19,7 @@ const Modal: React.FC<ModalProps> & {
 } = ({ isOpen, close, size = "medium", search = false, children }) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
-      <Dialog as="div" className="relative z-[75]" onClose={close}>
+      <Dialog as="div" onClose={close}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -29,18 +29,18 @@ const Modal: React.FC<ModalProps> & {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-opacity-75 backdrop-blur-md  h-screen" />
+          <div />
         </Transition.Child>
 
-        <div className="fixed inset-0 overflow-y-hidden">
+        <div>
           <div
-            className={clsx(
-              "flex min-h-full h-full justify-center p-4 text-center",
-              {
-                "items-center": !search,
-                "items-start": search,
-              }
-            )}
+          // className={clsx(
+          //   "flex min-h-full h-full justify-center p-4 text-center",
+          //   {
+          //     "items-center": !search,
+          //     "items-start": search,
+          //   }
+          // )}
           >
             <Transition.Child
               as={Fragment}
@@ -52,16 +52,16 @@ const Modal: React.FC<ModalProps> & {
               leaveTo="opacity-0 scale-95"
             >
               <Dialog.Panel
-                className={clsx(
-                  "flex flex-col justify-start w-full transform p-5 text-left align-middle transition-all max-h-[75vh] h-fit",
-                  {
-                    "max-w-md": size === "small",
-                    "max-w-xl": size === "medium",
-                    "max-w-3xl": size === "large",
-                    "bg-transparent shadow-none": search,
-                    "bg-white shadow-xl border rounded-rounded": !search,
-                  }
-                )}
+              // className={clsx(
+              //   "flex flex-col justify-start w-full transform p-5 text-left align-middle transition-all max-h-[75vh] h-fit",
+              //   {
+              //     "max-w-md": size === "small",
+              //     "max-w-xl": size === "medium",
+              //     "max-w-3xl": size === "large",
+              //     "bg-transparent shadow-none": search,
+              //     "bg-white shadow-xl border rounded-rounded": !search,
+              //   }
+              // )}
               >
                 <ModalProvider close={close}>{children}</ModalProvider>
               </Dialog.Panel>

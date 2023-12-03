@@ -22,20 +22,20 @@ const Hit = ({ hit }: HitProps) => {
   return (
     <Container
       key={hit.id}
-      className="grid grid-cols-[1fr] gap-2 w-full p-4 shadow-elevation-card-rest hover:shadow-elevation-card-hover     items-center justify-center"
+      
     >
-      <Thumbnail thumbnail={hit.thumbnail} size="square" className="group" />
-      <div className="flex flex-col justify-between group">
-        <div className="flex flex-col">
+      <Thumbnail thumbnail={hit.thumbnail} size="square"  />
+      <div >
+        <div >
           {hit.collection_id && (
             <Link
               href={`/collections/${hit.collection_handle}`}
-              className="text-ui-fg-on-color hover:text-ui-fg-subtle"
+              
             >
               {hit.collection_handle}
             </Link>
           )}
-          <Text className="text-ui-fg-subtle">{hit.title}</Text>
+          <Text >{hit.title}</Text>
         </div>
       </div>
     </Container>

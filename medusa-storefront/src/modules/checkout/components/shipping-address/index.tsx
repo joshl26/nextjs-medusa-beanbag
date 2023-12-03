@@ -20,8 +20,8 @@ const ShippingAddress = ({
   return (
     <div>
       {customer && (customer.shipping_addresses?.length || 0) > 0 && (
-        <Container className="mb-6 flex flex-col gap-y-4 p-5">
-          <p className="text-small-regular">
+        <Container>
+          <p>
             {`Hi ${customer.first_name}, do you want to use one of your saved addresses?`}
           </p>
           <AddressSelect addresses={customer.shipping_addresses} />
@@ -30,7 +30,7 @@ const ShippingAddress = ({
       <ConnectForm<CheckoutFormValues>>
         {({ register, formState: { errors, touchedFields } }) => (
           <>
-            <div className="grid grid-cols-2 gap-4">
+            <div>
               <Input
                 label="First name"
                 {...register("shipping_address.first_name", {
@@ -105,14 +105,14 @@ const ShippingAddress = ({
                 touched={touchedFields}
               />
             </div>
-            <div className="my-8">
+            <div>
               <Checkbox
                 label="Same as billing address"
                 checked={checked}
                 onChange={onChange}
               />
             </div>
-            <div className="grid grid-cols-2 gap-4 mb-4">
+            <div>
               <Input
                 label="Email"
                 {...register("email", {

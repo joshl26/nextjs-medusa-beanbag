@@ -79,7 +79,7 @@ const ProfileName: React.FC<MyInformationProps> = ({ customer }) => {
     <form
       onSubmit={handleSubmit(updatePassword)}
       onReset={() => reset()}
-      className="w-full"
+      
     >
       <AccountInfo
         label="Password"
@@ -92,7 +92,7 @@ const ProfileName: React.FC<MyInformationProps> = ({ customer }) => {
         errorMessage={errorMessage}
         clearState={clearState}
       >
-        <div className="grid grid-cols-2 gap-4">
+        <div >
           <Input
             label="Old password"
             {...register("old_password", {

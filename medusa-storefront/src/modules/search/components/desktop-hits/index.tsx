@@ -25,16 +25,16 @@ const DesktopHits = ({
 
   return (
     <div
-      className={clsx(
-        "transition-[height,max-height,opacity] duration-300 ease-in-out overflow-y-scroll w-[50vw] mb-1 p-px",
-        className,
-        {
-          "max-h-full opacity-100": !!query,
-          "max-h-0 opacity-0": !query && !hits.length,
-        }
-      )}
+    // className={clsx(
+    //   "transition-[height,max-height,opacity] duration-300 ease-in-out overflow-y-scroll w-[50vw] mb-1 p-px",
+    //   className,
+    //   {
+    //     "max-h-full opacity-100": !!query,
+    //     "max-h-0 opacity-0": !query && !hits.length,
+    //   }
+    // )}
     >
-      <div className="grid grid-cols-3 gap-4 mb-4">
+      <div>
         {hits.slice(0, 6).map((hit, index) => (
           <li key={index} className="list-none">
             <Hit hit={hit as unknown as ProductHit} />

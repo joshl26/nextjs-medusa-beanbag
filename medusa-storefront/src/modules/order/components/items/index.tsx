@@ -16,8 +16,8 @@ const Items = ({ items, region, cartId }: ItemsProps) => {
   const enrichedItems = useEnrichedLineItems(items, cartId)
 
   return (
-    <div className="flex flex-col">
-      <Divider className="!mb-0" />
+    <div>
+      <Divider />
       <Table>
         <Table.Body>
           {enrichedItems?.length && region

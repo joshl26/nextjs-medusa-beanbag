@@ -122,30 +122,26 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
   }
 
   return (
-    <div className="w-full bg-white flex flex-col">
-      <div className="txt-medium">
+    <div>
+      <div>
         {gift_cards.length > 0 && (
-          <div className="flex flex-col mb-4">
-            <Heading className="txt-medium">Gift card(s) applied:</Heading>
+          <div>
+            <Heading>Gift card(s) applied:</Heading>
             {gift_cards?.map((gc) => (
-              <div
-                className="flex items-center justify-between txt-small-plus"
-                key={gc.id}
-              >
-                <Text className="flex gap-x-1 items-baseline">
+              <div key={gc.id}>
+                <Text>
                   <span>Code: </span>
-                  <span className="truncate">{gc.code}</span>
+                  <span>{gc.code}</span>
                 </Text>
-                <Text className="font-semibold">
+                <Text>
                   {formatAmount({ region: region, amount: gc.balance })}
                 </Text>
                 <button
-                  className="flex items-center gap-x-2 !background-transparent !border-none"
                   onClick={() => removeGiftCard(gc.code)}
                   disabled={isLoading}
                 >
                   <Trash size={14} />
-                  <span className="sr-only">Remove gift card from order</span>
+                  <span>Remove gift card from order</span>
                 </button>
               </div>
             ))}
@@ -153,37 +149,31 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
         )}
 
         {appliedDiscount ? (
-          <div className="w-full flex items-center">
-            <div className="flex flex-col w-full">
-              <Heading className="txt-medium">Discount applied:</Heading>
-              <div className="flex items-center justify-between w-full max-w-full">
-                <Text className="flex gap-x-1 items-baseline txt-small-plus w-4/5 pr-1">
+          <div>
+            <div>
+              <Heading>Discount applied:</Heading>
+              <div>
+                <Text>
                   <span>Code:</span>
-                  <span className="truncate">{discounts[0].code}</span>
-                  <span className="min-w-fit">({appliedDiscount})</span>
+                  <span>{discounts[0].code}</span>
+                  <span>({appliedDiscount})</span>
                 </Text>
-                <button
-                  className="flex items-center"
-                  onClick={onRemove}
-                  disabled={isLoading}
-                >
+                <button onClick={onRemove} disabled={isLoading}>
                   <Trash size={14} />
-                  <span className="sr-only">
-                    Remove discount code from order
-                  </span>
+                  <span>Remove discount code from order</span>
                 </button>
               </div>
             </div>
           </div>
         ) : (
-          <form onSubmit={handleSubmit(onApply)} className="w-full">
-            <Label className="flex gap-x-1 mb-2">
+          <form onSubmit={handleSubmit(onApply)}>
+            <Label>
               Gift card or discount code?
               <Tooltip content="You can add multiple gift cards, but only one discount code.">
                 <InformationCircleSolid color="var(--fg-muted)" />
               </Tooltip>
             </Label>
-            <div className="flex w-full gap-x-2 items-center">
+            <div>
               <Input
                 label="Please enter code"
                 {...register("discount_code", {
@@ -192,12 +182,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                 errors={errors}
               />
 
-              <Button
-                type="submit"
-                variant="secondary"
-                className="!min-h-[0] h-10"
-                isLoading={isLoading}
-              >
+              <Button type="submit" variant="secondary" isLoading={isLoading}>
                 Apply
               </Button>
             </div>

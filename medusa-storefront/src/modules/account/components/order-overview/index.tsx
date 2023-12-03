@@ -11,7 +11,7 @@ const OrderOverview = () => {
 
   if (isLoading) {
     return (
-      <div className="text-gray-900 w-full flex justify-center pt-12">
+      <div >
         <Spinner size={36} />
       </div>
     )
@@ -19,11 +19,11 @@ const OrderOverview = () => {
 
   if (orders?.length) {
     return (
-      <div className="flex flex-col gap-y-8 w-full">
+      <div >
         {orders.map((o) => (
           <div
             key={o.id}
-            className="border-b border-gray-200 pb-6 last:pb-0 last:border-none"
+            
           >
             <OrderCard order={o} />
           </div>
@@ -33,12 +33,12 @@ const OrderOverview = () => {
   }
 
   return (
-    <div className="w-full flex flex-col items-center gap-y-4">
-      <h2 className="text-large-semi">Nothing to see here</h2>
-      <p className="text-base-regular">
+    <div >
+      <h2 >Nothing to see here</h2>
+      <p >
         You don&apos;t have any orders yet, let us change that {":)"}
       </p>
-      <div className="mt-4">
+      <div >
         <Link href="/" passHref>
           <Button>Continue shopping</Button>
         </Link>

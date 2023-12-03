@@ -46,20 +46,21 @@ const PaymentStripe: React.FC<PaymentStripeProps> = ({
         },
       },
       classes: {
-        base: "pt-3 pb-1 block w-full h-11 px-4 mt-0 bg-ui-bg-field border rounded-md appearance-none focus:outline-none focus:ring-0 focus:shadow-borders-interactive-with-active border-ui-border-base hover:bg-ui-bg-field-hover",
+        // base: "pt-3 pb-1 block w-full h-11 px-4 mt-0 bg-ui-bg-field border rounded-md appearance-none focus:outline-none focus:ring-0 focus:shadow-borders-interactive-with-active border-ui-border-base hover:bg-ui-bg-field-hover",
+        base: "",
       },
     }
   }, [])
 
   return (
-    <div className="flex flex-col relative w-full pb-6">
+    <div>
       <CardNumber
         options={useOptions as StripeCardNumberElementOptions}
         useFormState={useFormState}
         setState={setState}
         state={state}
       />
-      <div className="flex items-start mt-12 relative gap-x-4">
+      <div>
         <CardExpiry
           options={useOptions as StripeCardExpiryElementOptions}
           useFormState={useFormState}
@@ -111,8 +112,8 @@ const CardNumber = ({
   }
 
   return (
-    <div className="py-2 relative">
-      <span className="flex items-center gap-x-1 absolute -top-6 txt-medium text-ui-fg-base">
+    <div>
+      <span>
         Card number
         {state.cardNumberComplete && <CheckCircleMiniSolid />}
       </span>
@@ -122,7 +123,7 @@ const CardNumber = ({
         name="cardNumber"
         render={({ message }) => {
           return (
-            <div className="pt-2 text-rose-500 txt-compact-small">
+            <div>
               <span>{message}</span>
             </div>
           )
@@ -166,8 +167,8 @@ const CardExpiry = ({
   }
 
   return (
-    <div className="w-full py-2 relative">
-      <span className="flex items-center gap-x-1 absolute -top-6 txt-medium text-ui-fg-base">
+    <div>
+      <span>
         Expiration date
         {state.cardExpiryComplete && <CheckCircleMiniSolid />}
       </span>
@@ -177,7 +178,7 @@ const CardExpiry = ({
         name="cardExpiry"
         render={({ message }) => {
           return (
-            <div className="pt-2 text-rose-500 txt-compact-small">
+            <div>
               <span>{message}</span>
             </div>
           )
@@ -221,8 +222,8 @@ const CardCVC = ({
   }
 
   return (
-    <div className="w-full py-2 relative">
-      <span className="flex items-center gap-x-1 absolute -top-6 txt-medium text-ui-fg-base">
+    <div>
+      <span>
         CVC
         {state.cardCvcComplete && <CheckCircleMiniSolid />}
       </span>
@@ -235,7 +236,7 @@ const CardCVC = ({
         name="cardCvc"
         render={({ message }) => {
           return (
-            <div className="pt-2 text-rose-500 txt-compact-small">
+            <div>
               <span>{message}</span>
             </div>
           )

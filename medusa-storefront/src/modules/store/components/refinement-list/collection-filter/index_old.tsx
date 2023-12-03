@@ -45,17 +45,16 @@ const FilterCollections = ({
   }
 
   return (
-    <div className="flex gap-x-3 small:flex-col small:gap-y-3">
-      <span className="text-base-semi">Collections</span>
-      <ul className="text-base-regular flex items-center gap-x-4 small:grid small:grid-cols-1 small:gap-y-2">
+    <div>
+      <span>Collections</span>
+      <ul>
         {collections?.map((c) => (
           <li key={c.id}>
-            <label className="flex items-center gap-x-2">
+            <label>
               <input
                 type="checkbox"
                 defaultChecked={refinementList.collection_id?.includes(c.id)}
                 onChange={(e) => handleCollectionChange(e, c.id)}
-                className="accent-amber-200"
               />
               {c.title}
             </label>

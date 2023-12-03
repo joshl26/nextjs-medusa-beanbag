@@ -57,11 +57,11 @@ const CollectionTemplate: React.FC<{ collection: ProductCollection }> = ({
   }, [inView, hasNextPage])
 
   return (
-    <div className="content-container py-6">
-      <div className="mb-8 text-2xl-semi">
+    <div >
+      <div >
         <h1>{collection.title}</h1>
       </div>
-      <ul className="grid grid-cols-2 small:grid-cols-3 medium:grid-cols-4 gap-x-6 gap-y-8">
+      <ul >
         {previews.map((p) => (
           <li key={p.id}>
             <ProductPreview {...p} />
@@ -75,7 +75,7 @@ const CollectionTemplate: React.FC<{ collection: ProductCollection }> = ({
           ))}
       </ul>
       <div
-        className="py-16 flex justify-center items-center text-small-regular text-gray-700"
+        
         ref={ref}
       >
         <span ref={ref}></span>

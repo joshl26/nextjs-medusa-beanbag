@@ -110,7 +110,7 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({ customer }) => {
       )?.label || customer.billing_address.country_code?.toUpperCase()
 
     return (
-      <div className="flex flex-col font-semibold">
+      <div>
         <span>
           {customer.billing_address.first_name}{" "}
           {customer.billing_address.last_name}
@@ -135,7 +135,6 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({ customer }) => {
     <form
       onSubmit={handleSubmit(updateBillingAddress)}
       onReset={() => reset(mapBillingAddressToFormData({ customer }))}
-      className="w-full"
     >
       <AccountInfo
         label="Billing address"
@@ -145,8 +144,8 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({ customer }) => {
         isError={isError}
         clearState={clearState}
       >
-        <div className="grid grid-cols-1 gap-y-2">
-          <div className="grid grid-cols-2 gap-x-2">
+        <div>
+          <div>
             <Input
               label="First name"
               {...register("billing_address.first_name", {
@@ -180,7 +179,7 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({ customer }) => {
             defaultValue={address2}
             errors={errors}
           />
-          <div className="grid grid-cols-[144px_1fr] gap-x-2">
+          <div>
             <Input
               label="Postal code"
               {...register("billing_address.postal_code", { required: true })}

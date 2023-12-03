@@ -114,17 +114,17 @@ const Shipping: React.FC<ShippingProps> = ({ cart }) => {
   }, [shipping_options, cart])
 
   return (
-    <div className="bg-white p-4 small:px-8">
-      <div className="flex flex-row items-center justify-between mb-6">
+    <div >
+      <div >
         <Heading
           level="h2"
-          className={clx(
-            "flex flex-row text-3xl-regular gap-x-2 items-baseline",
-            {
-              "opacity-50 pointer-events-none select-none":
-                editingOtherSteps && !shippingReady,
-            }
-          )}
+          // className={clx(
+          //   "flex flex-row text-3xl-regular gap-x-2 items-baseline",
+          //   {
+          //     "opacity-50 pointer-events-none select-none":
+          //       editingOtherSteps && !shippingReady,
+          //   }
+          // )}
         >
           Delivery
           {!isOpen && currentShippingOption && shippingReady && (
@@ -133,14 +133,14 @@ const Shipping: React.FC<ShippingProps> = ({ cart }) => {
         </Heading>
         {!isOpen && addressReady && (
           <Text>
-            <button onClick={handleEdit} className="text-ui-fg-interactive">
+            <button onClick={handleEdit} >
               Edit
             </button>
           </Text>
         )}
       </div>
       {!editingOtherSteps && isOpen ? (
-        <div className="pb-8">
+        <div >
           <div>
             <RadioGroup
               value={shippingOptionId}
@@ -152,28 +152,28 @@ const Shipping: React.FC<ShippingProps> = ({ cart }) => {
                     <RadioGroup.Option
                       key={option.value}
                       value={option.value}
-                      className={clx(
-                        "flex items-center justify-between text-small-regular cursor-pointer py-4 border rounded-rounded px-8 mb-2 hover:shadow-borders-interactive-with-active",
-                        {
-                          "border-ui-border-interactive":
-                            option.value === shippingOptionId,
-                        }
-                      )}
+                      // className={clx(
+                      //   "flex items-center justify-between text-small-regular cursor-pointer py-4 border rounded-rounded px-8 mb-2 hover:shadow-borders-interactive-with-active",
+                      //   {
+                      //     "border-ui-border-interactive":
+                      //       option.value === shippingOptionId,
+                      //   }
+                      // )}
                     >
-                      <div className="flex items-center gap-x-4">
+                      <div >
                         <Radio checked={shippingOptionId === option.value} />
-                        <span className="text-base-regular">
+                        <span >
                           {option.label}
                         </span>
                       </div>
-                      <span className="justify-self-end text-gray-700">
+                      <span >
                         {option.price}
                       </span>
                     </RadioGroup.Option>
                   )
                 })
               ) : (
-                <div className="flex flex-col items-center justify-center px-4 py-8 text-gray-900">
+                <div >
                   <Spinner />
                 </div>
               )}
@@ -183,7 +183,7 @@ const Shipping: React.FC<ShippingProps> = ({ cart }) => {
               name="soId"
               render={({ message }) => {
                 return (
-                  <div className="pt-2 text-rose-500 text-small-regular">
+                  <div >
                     <span>{message}</span>
                   </div>
                 )
@@ -193,7 +193,7 @@ const Shipping: React.FC<ShippingProps> = ({ cart }) => {
 
           <Button
             size="large"
-            className="mt-6"
+            
             onClick={() => submitShippingOption(shippingOptionId)}
           >
             Continue to payment
@@ -201,13 +201,13 @@ const Shipping: React.FC<ShippingProps> = ({ cart }) => {
         </div>
       ) : (
         <div>
-          <div className="text-small-regular">
+          <div >
             {cart && shippingReady && (
-              <div className="flex flex-col w-1/3">
-                <Text className="txt-medium-plus text-ui-fg-base mb-1">
+              <div >
+                <Text >
                   Method
                 </Text>
-                <Text className="txt-medium text-ui-fg-subtle">
+                <Text >
                   {cart.shipping_methods[0].shipping_option.name} (
                   {formatAmount({
                     amount: cart.shipping_methods[0].price,
@@ -222,7 +222,7 @@ const Shipping: React.FC<ShippingProps> = ({ cart }) => {
           </div>
         </div>
       )}
-      <Divider className="mt-8" />
+      <Divider  />
     </div>
   )
 }

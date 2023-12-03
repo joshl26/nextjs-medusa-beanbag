@@ -31,9 +31,9 @@ const MobileActions: React.FC<MobileActionsProps> = ({ product, show }) => {
   return (
     <>
       <div
-        className={clsx("lg:hidden sticky inset-x-0 bottom-0", {
-          "pointer-events-none": !show,
-        })}
+      // className={clsx("lg:hidden sticky inset-x-0 bottom-0", {
+      //   "pointer-events-none": !show,
+      // })}
       >
         <Transition
           as={Fragment}
@@ -45,24 +45,22 @@ const MobileActions: React.FC<MobileActionsProps> = ({ product, show }) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="bg-white flex flex-col gap-y-3 justify-center items-center text-large-regular p-4 h-full w-full border-t border-gray-200">
-            <div className="flex items-center gap-x-2">
+          <div>
+            <div>
               <span>{product.title}</span>
               <span>—</span>
               {selectedPrice ? (
-                <div className="flex items-end gap-x-2 text-gray-700">
+                <div>
                   {selectedPrice.price_type === "sale" && (
                     <p>
-                      <span className="line-through text-small-regular">
-                        {selectedPrice.original_price}
-                      </span>
+                      <span>{selectedPrice.original_price}</span>
                     </p>
                   )}
                   <span
-                    className={clsx({
-                      "text-ui-fg-interactive":
-                        selectedPrice.price_type === "sale",
-                    })}
+                  // className={clsx({
+                  //   "text-ui-fg-interactive":
+                  //     selectedPrice.price_type === "sale",
+                  // })}
                   >
                     {selectedPrice.calculated_price}
                   </span>
@@ -71,9 +69,9 @@ const MobileActions: React.FC<MobileActionsProps> = ({ product, show }) => {
                 <div></div>
               )}
             </div>
-            <div className="grid grid-cols-2 w-full gap-x-4">
-              <Button onClick={open} variant="secondary" className="w-full">
-                <div className="flex items-center justify-between w-full">
+            <div>
+              <Button onClick={open} variant="secondary">
+                <div>
                   <span>
                     {variant
                       ? Object.values(options).join(" / ")
@@ -82,7 +80,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({ product, show }) => {
                   <ChevronDown />
                 </div>
               </Button>
-              <Button onClick={addToCart} className="w-full">
+              <Button onClick={addToCart}>
                 {!inStock ? "Out of stock" : "Add to cart"}
               </Button>
             </div>
@@ -90,7 +88,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({ product, show }) => {
         </Transition>
       </div>
       <Transition appear show={state} as={Fragment}>
-        <Dialog as="div" className="relative z-[75]" onClose={close}>
+        <Dialog as="div" onClose={close}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -100,11 +98,11 @@ const MobileActions: React.FC<MobileActionsProps> = ({ product, show }) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-gray-700 bg-opacity-75 backdrop-blur-sm" />
+            <div />
           </Transition.Child>
 
-          <div className="fixed bottom-0 inset-x-0">
-            <div className="flex min-h-full h-full items-center justify-center text-center">
+          <div >
+            <div >
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -114,18 +112,18 @@ const MobileActions: React.FC<MobileActionsProps> = ({ product, show }) => {
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
               >
-                <Dialog.Panel className="w-full h-full transform overflow-hidden text-left flex flex-col gap-y-3">
-                  <div className="w-full flex justify-end pr-6">
+                <Dialog.Panel >
+                  <div >
                     <button
                       onClick={close}
-                      className="bg-white w-12 h-12 rounded-full text-gray-900 flex justify-center items-center"
+                      
                     >
                       <X />
                     </button>
                   </div>
-                  <div className="bg-white px-6 py-12">
+                  <div >
                     {product.variants.length > 1 && (
-                      <div className="flex flex-col gap-y-6">
+                      <div >
                         {(product.options || []).map((option) => {
                           return (
                             <div key={option.id}>

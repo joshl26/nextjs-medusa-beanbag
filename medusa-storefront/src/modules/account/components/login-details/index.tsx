@@ -11,7 +11,7 @@ type LoginDetailsProps = {
 const LoginDetails: React.FC<LoginDetailsProps> = ({ customer }) => {
   return (
     <Detail title="Login">
-      <div className="flex flex-col gap-y-4">
+      <div>
         <Detail.SubDetail title="Email">
           <span>{customer.email}</span>
           <EditEmailModal customer={customer} />

@@ -27,14 +27,14 @@ const OptionSelect: React.FC<OptionSelectProps> = ({
             <button
               onClick={() => updateOption({ [option.id]: v })}
               key={v}
-              className={clsx(
-                "border-ui-border-base bg-ui-bg-subtle border text-small-regular h-10 rounded-rounded p-2 flex-1 ",
-                {
-                  "border-ui-border-interactive": v === current,
-                  "hover:shadow-elevation-card-rest transition-shadow ease-in-out duration-150":
-                    v !== current,
-                }
-              )}
+              // className={clsx(
+              //   "border-ui-border-base bg-ui-bg-subtle border text-small-regular h-10 rounded-rounded p-2 flex-1 ",
+              //   {
+              //     "border-ui-border-interactive": v === current,
+              //     "hover:shadow-elevation-card-rest transition-shadow ease-in-out duration-150":
+              //       v !== current,
+              //   }
+              // )}
             >
               {v}
             </button>

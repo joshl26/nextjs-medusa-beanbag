@@ -13,8 +13,8 @@ const Detail: React.FC<DetailProps> & {
 } = ({ title, children }) => {
   return (
     <div>
-      <h2 className="text-large-semi mb-2">{title}</h2>
-      <div className="flex flex-col gap-y-4 text-small-regular">{children}</div>
+      <h2>{title}</h2>
+      <div>{children}</div>
     </div>
   )
 }

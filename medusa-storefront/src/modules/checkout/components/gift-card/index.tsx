@@ -69,31 +69,31 @@ const GiftCard: React.FC<GiftCardProps> = ({ cart }) => {
   }
 
   return (
-    <div className="w-full bg-white p-6 flex flex-col">
-      <div className="mb-4">
-        <h3 className="text-base-semi">Gift Card</h3>
+    <div >
+      <div >
+        <h3 >Gift Card</h3>
       </div>
-      <div className="text-small-regular">
+      <div >
         {appliedGiftCard ? (
-          <div className="flex items-center justify-between">
+          <div >
             <div>
-              <span className="text-gray-700">Code: </span>
-              <span className="font-semibold">{appliedGiftCard}</span>
+              <span >Code: </span>
+              <span >{appliedGiftCard}</span>
             </div>
             <div>
               <button
-                className="flex items-center gap-x-2"
+                
                 onClick={onRemove}
                 disabled={isLoading}
               >
                 <Trash size={16} />
-                <span className="sr-only">Remove gift card from order</span>
+                <span >Remove gift card from order</span>
               </button>
             </div>
           </div>
         ) : (
-          <form onSubmit={handleSubmit(onSubmit)} className="w-full">
-            <div className="grid grid-cols-[1fr_80px] gap-x-2">
+          <form onSubmit={handleSubmit(onSubmit)} >
+            <div >
               <Input
                 label="Code"
                 {...register("gift_card_code", {
@@ -104,7 +104,7 @@ const GiftCard: React.FC<GiftCardProps> = ({ cart }) => {
               />
               <div>
                 <Button
-                  className="!min-h-[0] h-[46px] w-[80px]"
+                  
                   disabled={isLoading}
                   isLoading={isLoading}
                 >

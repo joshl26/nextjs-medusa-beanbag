@@ -98,23 +98,19 @@ const EditAddress: React.FC<EditAddressProps> = ({
   return (
     <>
       <div
-        className={clsx(
-          "border rounded-rounded p-5 min-h-[220px] h-full w-full flex flex-col justify-between transition-colors",
-          {
-            "border-gray-900": isActive,
-          }
-        )}
+      // className={clsx(
+      //   "border rounded-rounded p-5 min-h-[220px] h-full w-full flex flex-col justify-between transition-colors",
+      //   {
+      //     "border-gray-900": isActive,
+      //   }
+      // )}
       >
-        <div className="flex flex-col">
-          <Heading className="text-left text-base-semi">
+        <div>
+          <Heading>
             {address.first_name} {address.last_name}
           </Heading>
-          {address.company && (
-            <Text className="txt-compact-small text-gray-700">
-              {address.company}
-            </Text>
-          )}
-          <Text className="flex flex-col text-left text-base-regular mt-2">
+          {address.company && <Text>{address.company}</Text>}
+          <Text>
             <span>
               {address.address_1}
               {address.address_2 && <span>, {address.address_2}</span>}
@@ -128,18 +124,12 @@ const EditAddress: React.FC<EditAddressProps> = ({
             </span>
           </Text>
         </div>
-        <div className="flex items-center gap-x-4">
-          <button
-            className="text-small-regular text-gray-700 flex items-center gap-x-2"
-            onClick={open}
-          >
+        <div>
+          <button onClick={open}>
             <Edit />
             Edit
           </button>
-          <button
-            className="text-small-regular text-gray-700 flex items-center gap-x-2"
-            onClick={removeAddress}
-          >
+          <button onClick={removeAddress}>
             <Trash />
             Remove
           </button>
@@ -148,11 +138,11 @@ const EditAddress: React.FC<EditAddressProps> = ({
 
       <Modal isOpen={state} close={close}>
         <Modal.Title>
-          <Heading className="mb-2">Edit address</Heading>
+          <Heading>Edit address</Heading>
         </Modal.Title>
         <Modal.Body>
-          <div className="grid grid-cols-1 gap-y-2">
-            <div className="grid grid-cols-2 gap-x-2">
+          <div>
+            <div>
               <Input
                 label="First name"
                 {...register("first_name", {
@@ -188,7 +178,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
               errors={errors}
               autoComplete="address-line2"
             />
-            <div className="grid grid-cols-[144px_1fr] gap-x-2">
+            <div>
               <Input
                 label="Postal code"
                 {...register("postal_code", {
@@ -225,16 +215,14 @@ const EditAddress: React.FC<EditAddressProps> = ({
               autoComplete="phone"
             />
           </div>
-          {error && (
-            <div className="text-rose-500 text-small-regular py-2">{error}</div>
-          )}
+          {error && <div>{error}</div>}
         </Modal.Body>
         <Modal.Footer>
-          <div className="flex gap-3 mt-4">
+          <div>
             <Button variant="secondary" onClick={close} disabled={submitting}>
               Cancel
             </Button>
-            <Button className="min-h-0" onClick={submit} isLoading={submitting}>
+            <Button onClick={submit} isLoading={submitting}>
               Save
             </Button>
           </div>

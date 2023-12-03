@@ -12,14 +12,14 @@ const ShowAll = ({ close }: { close: () => void }) => {
 
   if (hits.length === 0) {
     return (
-      <Container className="flex gap-2 justify-center h-fit py-2">
+      <Container >
         <Text>No results found.</Text>
       </Container>
     )
   }
 
   return (
-    <Container className="flex flex-col small:flex-row gap-2 justify-center items-center h-fit py-4 small:py-2">
+    <Container >
       <Text>Showing the first 6 results.</Text>
       <InteractiveLink href={`/search/${query}`} onClick={close}>
         View all

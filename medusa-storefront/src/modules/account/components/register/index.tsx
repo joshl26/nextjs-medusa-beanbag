@@ -43,21 +43,21 @@ const Register = () => {
   })
 
   return (
-    <div className="max-w-sm flex flex-col items-center mt-12">
+    <div >
       {isSubmitting && (
-        <div className="z-10 fixed inset-0 bg-white bg-opacity-50 flex items-center justify-center">
+        <div >
           <Spinner />
         </div>
       )}
-      <h1 className="text-large-semi uppercase mb-6">
+      <h1 >
         Become a Medusa Store Member
       </h1>
-      <p className="text-center text-base-regular text-gray-700 mb-4">
+      <p >
         Create your Medusa Store Member profile, and get access to an enhanced
         shopping experience.
       </p>
-      <form className="w-full flex flex-col" onSubmit={onSubmit}>
-        <div className="flex flex-col w-full gap-y-2">
+      <form  onSubmit={onSubmit}>
+        <div >
           <Input
             label="First name"
             {...register("first_name", { required: "First name is required" })}
@@ -94,31 +94,31 @@ const Register = () => {
         </div>
         {authError && (
           <div>
-            <span className="text-rose-500 w-full text-small-regular">
+            <span >
               These credentials do not match our records
             </span>
           </div>
         )}
-        <span className="text-center text-gray-700 text-small-regular mt-6">
+        <span >
           By creating an account, you agree to Medusa Store&apos;s{" "}
-          <Link href="/content/privacy-policy" className="underline">
+          <Link href="/content/privacy-policy" >
             Privacy Policy
           </Link>{" "}
           and{" "}
-          <Link href="/content/terms-of-use" className="underline">
+          <Link href="/content/terms-of-use" >
             Terms of Use
           </Link>
           .
         </span>
-        <Button className="mt-6 w-full" size="xlarge">
+        <Button  size="xlarge">
           Join
         </Button>
       </form>
-      <span className="text-center text-gray-700 text-small-regular mt-6">
+      <span >
         Already a member?{" "}
         <button
           onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}
-          className="underline"
+          
         >
           Sign in
         </button>

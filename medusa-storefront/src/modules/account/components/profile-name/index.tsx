@@ -72,7 +72,7 @@ const ProfileName: React.FC<MyInformationProps> = ({ customer }) => {
   return (
     <form
       onSubmit={handleSubmit(updateName)}
-      className="w-full overflow-visible"
+      
     >
       <AccountInfo
         label="Name"
@@ -82,7 +82,7 @@ const ProfileName: React.FC<MyInformationProps> = ({ customer }) => {
         isError={isError}
         clearState={clearState}
       >
-        <div className="grid grid-cols-2 gap-x-4">
+        <div >
           <Input
             label="First name"
             {...register("first_name", {

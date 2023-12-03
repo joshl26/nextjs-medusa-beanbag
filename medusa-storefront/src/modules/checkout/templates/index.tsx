@@ -10,39 +10,29 @@ import SubmitSpinner from "../components/submit-spinner"
 const CheckoutTemplate = () => {
   return (
     <CheckoutProvider>
-      <div className="bg-white relative small:min-h-screen">
+      <div>
         <SubmitSpinner />
-        <div className="h-16 bg-white">
-          <nav className="flex items-center h-full justify-between content-container border-b">
-            <Link
-              href="/cart"
-              className="text-small-semi text-gray-700 flex items-center gap-x-2 uppercase flex-1 basis-0"
-            >
+        <div>
+          <nav>
+            <Link href="/cart">
               <>
-                <ChevronDown className="rotate-90" size={16} />
-                <span className="mt-px hidden small:block txt-compact-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase">
-                  Back to shopping cart
-                </span>
-                <span className="mt-px block small:hidden">Back</span>
+                <ChevronDown size={16} />
+                <span>Back to shopping cart</span>
+                <span>Back</span>
               </>
             </Link>
-            <Link
-              href="/"
-              className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
-            >
-              Medusa Store
-            </Link>
-            <div className="flex-1 basis-0" />
+            <Link href="/">Medusa Store</Link>
+            <div />
           </nav>
         </div>
-        <div className="relative">
+        <div>
           <CheckoutLoader />
-          <div className="grid grid-cols-1 small:grid-cols-[1fr_416px] content-container gap-x-40 py-12">
+          <div>
             <CheckoutForm />
             <CheckoutSummary />
           </div>
         </div>
-        <div className="py-4 w-full flex items-center justify-center">
+        <div>
           <MedusaCTA />
         </div>
       </div>

@@ -92,7 +92,7 @@ const EditPasswordModal: React.FC<EditPasswordModalProps> = ({ customer }) => {
       <Modal isOpen={state} close={close}>
         <Modal.Title>Edit your password</Modal.Title>
         <Modal.Body>
-          <div className="flex flex-col gap-y-8">
+          <div >
             <Input
               label="Old password"
               {...register("old_password", {
@@ -113,17 +113,17 @@ const EditPasswordModal: React.FC<EditPasswordModalProps> = ({ customer }) => {
             />
           </div>
           {error && (
-            <div className="text-rose-500 text-small-regular py-2">{error}</div>
+            <div >{error}</div>
           )}
         </Modal.Body>
         <Modal.Footer>
           <Button
-            className="!bg-gray-200 !text-gray-900 !border-gray-200 min-h-0"
+            
             onClick={close}
           >
             Cancel
           </Button>
-          <Button className="min-h-0" onClick={submit} disabled={submitting}>
+          <Button  onClick={submit} disabled={submitting}>
             Save
             {submitting && <Spinner />}
           </Button>

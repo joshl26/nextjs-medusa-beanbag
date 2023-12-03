@@ -25,21 +25,16 @@ const SearchResultsTemplate = ({ query, hits }: SearchResultsTemplateProps) => {
 
   return (
     <div>
-      <div className="flex justify-between border-b w-full py-6 px-8 small:px-14 items-center">
-        <div className="flex flex-col items-start">
-          <Text className="text-ui-fg-muted">Search Results for:</Text>
+      <div>
+        <div>
+          <Text>Search Results for:</Text>
           <Heading>
             {query} ({hits.length})
           </Heading>
         </div>
-        <Link
-          href="/store"
-          className="txt-medium text-ui-fg-subtle hover:text-ui-fg-base"
-        >
-          Clear
-        </Link>
+        <Link href="/store">Clear</Link>
       </div>
-      <div className="flex flex-col small:flex-row small:items-start py-6">
+      <div>
         {hits.length > 0 ? (
           <>
             <RefinementList
@@ -52,7 +47,7 @@ const SearchResultsTemplate = ({ query, hits }: SearchResultsTemplateProps) => {
             <InfiniteProducts params={params} sortBy={sortBy} />
           </>
         ) : (
-          <Text className="ml-8 small:ml-14 mt-3">No results.</Text>
+          <Text>No results.</Text>
         )}
       </div>
     </div>

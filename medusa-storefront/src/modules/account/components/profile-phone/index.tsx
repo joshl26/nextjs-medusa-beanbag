@@ -63,7 +63,7 @@ const ProfilePhone: React.FC<MyInformationProps> = ({ customer }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit(updatePhone)} className="w-full">
+    <form onSubmit={handleSubmit(updatePhone)} >
       <AccountInfo
         label="Phone"
         currentInfo={`${customer.phone}`}
@@ -72,7 +72,7 @@ const ProfilePhone: React.FC<MyInformationProps> = ({ customer }) => {
         isError={isError}
         clearState={clearState}
       >
-        <div className="grid grid-cols-1 gap-y-2">
+        <div >
           <Input
             label="Phone"
             {...register("phone", {

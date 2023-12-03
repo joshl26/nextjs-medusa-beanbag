@@ -10,26 +10,23 @@ const AccountNav = () => {
 
   return (
     <div>
-      <div className="small:hidden">
+      <div>
         {route !== "/account" && (
-          <Link
-            href="/account"
-            className="flex items-center gap-x-2 text-small-regular py-2"
-          >
+          <Link href="/account">
             <>
-              <ChevronDown className="transform rotate-90" />
+              <ChevronDown />
               <span>Account</span>
             </>
           </Link>
         )}
       </div>
-      <div className="hidden small:block">
+      <div>
         <div>
-          <div className="py-4">
-            <h3 className="text-base-semi">Account</h3>
+          <div>
+            <h3>Account</h3>
           </div>
-          <div className="text-base-regular">
-            <ul className="flex mb-0 justify-start items-start flex-col gap-y-4">
+          <div>
+            <ul>
               <li>
                 <AccountNavLink href="/account" route={route!}>
                   Overview
@@ -50,7 +47,7 @@ const AccountNav = () => {
                   Orders
                 </AccountNavLink>
               </li>
-              <li className="text-grey-700">
+              <li>
                 <button type="button" onClick={handleLogout}>
                   Log out
                 </button>
@@ -74,9 +71,9 @@ const AccountNavLink = ({ href, route, children }: AccountNavLinkProps) => {
   return (
     <Link
       href={href}
-      className={clsx("text-gray-700", {
-        "text-gray-900 font-semibold": active,
-      })}
+      // className={clsx("text-gray-700", {
+      //   "text-gray-900 font-semibold": active,
+      // })}
     >
       <>{children}</>
     </Link>

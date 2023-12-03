@@ -27,10 +27,10 @@ const ProductActionsInner: React.FC<ProductActionsProps> = ({ product }) => {
   }, [price])
 
   return (
-    <div className="flex flex-col gap-y-2">
+    <div>
       <div>
         {product.variants.length > 1 && (
-          <div className="flex flex-col gap-y-4">
+          <div>
             {(product.options || []).map((option) => {
               return (
                 <div key={option.id}>
@@ -49,23 +49,23 @@ const ProductActionsInner: React.FC<ProductActionsProps> = ({ product }) => {
       </div>
 
       {selectedPrice ? (
-        <div className="flex flex-col text-ui-fg-base">
+        <div>
           <span
-            className={clsx("text-xl-semi", {
-              "text-ui-fg-interactive": selectedPrice.price_type === "sale",
-            })}
+          // className={clsx("text-xl-semi", {
+          //   "text-ui-fg-interactive": selectedPrice.price_type === "sale",
+          // })}
           >
             {selectedPrice.calculated_price}
           </span>
           {selectedPrice.price_type === "sale" && (
             <>
               <p>
-                <span className="text-ui-fg-subtle">Original: </span>
-                <span className="line-through">
+                <span >Original: </span>
+                <span >
                   {selectedPrice.original_price}
                 </span>
               </p>
-              <span className="text-ui-fg-interactive">
+              <span >
                 -{selectedPrice.percentage_diff}%
               </span>
             </>
@@ -79,7 +79,6 @@ const ProductActionsInner: React.FC<ProductActionsProps> = ({ product }) => {
         onClick={addToCart}
         disabled={!inStock || !variant}
         variant="primary"
-        className="w-full h-10"
       >
         {!inStock
           ? "Out of stock"

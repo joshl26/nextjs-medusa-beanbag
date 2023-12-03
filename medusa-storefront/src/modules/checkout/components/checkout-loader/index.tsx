@@ -10,7 +10,7 @@ const CheckoutLoader = () => {
 
   return (
     <Transition show={isLoading}>
-      <Dialog onClose={noop} className="relative z-[100]">
+      <Dialog onClose={noop}>
         <Transition.Child
           enter="ease-out duration-500"
           enterFrom="opacity-0"
@@ -19,7 +19,7 @@ const CheckoutLoader = () => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-white bg-opacity-50 flex items-center justify-center">
+          <div>
             <Spinner size={24} />
           </div>
         </Transition.Child>

@@ -69,30 +69,24 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({ categories }) => {
   }, [inView, hasNextPage])
 
   return (
-    <div className="content-container py-6">
-      <div className="flex flex-row mb-8 text-2xl-semi gap-4">
+    <div>
+      <div>
         {parents &&
           parents.map((parent) => (
-            <span key={parent.id} className="text-gray-500">
-              <Link
-                className="mr-4 hover:text-black"
-                href={`/${parent.handle}`}
-              >
-                {parent.name}
-              </Link>
-              /
+            <span key={parent.id}>
+              <Link href={`/${parent.handle}`}>{parent.name}</Link>/
             </span>
           ))}
         <h1>{category.name}</h1>
       </div>
       {category.description && (
-        <div className="mb-8 text-base-regular">
+        <div>
           <p>{category.description}</p>
         </div>
       )}
       {category.category_children && (
-        <div className="mb-8 text-base-large">
-          <ul className="grid grid-cols-1 gap-2">
+        <div>
+          <ul>
             {category.category_children?.map((c) => (
               <li key={c.id}>
                 <UnderlineLink href={`/${c.handle}`}>{c.name}</UnderlineLink>
@@ -101,7 +95,7 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({ categories }) => {
           </ul>
         </div>
       )}
-      <ul className="grid grid-cols-2 small:grid-cols-3 medium:grid-cols-4 gap-x-6 gap-y-8">
+      <ul>
         {previews.map((p) => (
           <li key={p.id}>
             <ProductPreview {...p} />
@@ -114,10 +108,7 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({ categories }) => {
             </li>
           ))}
       </ul>
-      <div
-        className="py-16 flex justify-center items-center text-small-regular text-gray-700"
-        ref={ref}
-      >
+      <div ref={ref}>
         <span ref={ref}></span>
       </div>
     </div>
