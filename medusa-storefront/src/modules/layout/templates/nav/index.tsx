@@ -9,6 +9,7 @@ import SideMenu from "@modules/layout/components/side-menu"
 import MobileMenu from "@modules/mobile-menu/templates"
 import DesktopSearchModal from "@modules/search/templates/desktop-search-modal"
 import Link from "next/link"
+import styles from "./nav.module.css"
 
 const Nav = () => {
   const { toggle } = useMobileMenu()
@@ -20,7 +21,7 @@ const Nav = () => {
 
   return (
     <div>
-      <header>
+      <header className={styles.header}>
         <nav>
           <div>
             {/* <div>
@@ -46,7 +47,7 @@ const Nav = () => {
               )}
               <Link href="/account">Account</Link>
             </div>
-            <CartDropdown />
+            {/* <CartDropdown /> */}
           </div>
         </nav>
         <MobileMenu />

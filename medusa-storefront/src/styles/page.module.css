@@ -1,0 +1,75 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    background: rgba(var(--card-rgb), 0.1);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+  }
+
+  .card:hover span {
+    transform: translateX(4px);
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .card:hover span {
+    transform: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .section_landing_card {
+    width: 100%;
+    display: flex;
+    align-items: top;
+    flex-wrap: wrap;
+  }
+
+  .spacer_small {
+    height: 35px;
+  }
+
+  .spacer {
+    height: 50px;
+  }
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) {
+  .section_landing_card {
+    width: 100%;
+    display: flex;
+    align-items: top;
+    flex-wrap: wrap;
+    gap: 50px;
+  }
+
+  .spacer {
+    height: 50px;
+  }
+}
+
+.landing_info {
+  color: black;
+  font-family: raleway;
+  font-weight: 400;
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.landing_container {
+  flex-grow: 1;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin: 0 au;
+}
