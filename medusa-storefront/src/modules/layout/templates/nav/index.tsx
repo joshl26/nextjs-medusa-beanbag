@@ -10,6 +10,7 @@ import SideMenu from "@modules/layout/components/side-menu"
 // import SideMenu from "@modules/layout/components/side-menu"
 import MobileMenu from "@modules/mobile-menu/templates"
 import DesktopSearchModal from "@modules/search/templates/desktop-search-modal"
+import { CldImage } from "next-cloudinary"
 import Link from "next/link"
 import { useState } from "react"
 import styles from "./nav.module.css"
@@ -40,12 +41,12 @@ const Nav = () => {
           <div className={styles.link_container}>
             <div className={styles.hero_image}>
               <Link href="/">
-                {/* <CldImage
+                <CldImage
                   alt="BeanbagCoffee/Beanbag_o1njjx"
                   width="50"
                   height="50"
                   src="BeanbagCoffee/Beanbag_o1njjx"
-                /> */}
+                />
               </Link>
             </div>
             <div className={styles.links}>
