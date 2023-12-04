@@ -5,7 +5,7 @@ import { MenuCardDataType } from "../../../types/types"
 import MenuCard from "@modules/menu/components/menu-card"
 import { DrinkData } from "@app/data/drinkData"
 import { AtHomeData } from "@app/data/atHomeData"
-import styles from "./Menu.module.css"
+import styles from "./menu.module.css"
 import Link from "next/link"
 
 const Menu = () => {

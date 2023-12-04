@@ -1,17 +1,17 @@
-"use client";
+"use client"
 
-import React from "react";
-import { MenuCardDataType } from "@/app/types/types";
-import MenuCard from "@/app/ui/MenuCard";
-import { DrinkData } from "@/app/data/drinkData";
-import { AtHomeData } from "@/app/data/atHomeData";
+import React from "react"
+import { MenuCardDataType } from "../../../../../types/types"
+import MenuCard from "@modules/menu/components/menu-card"
+import { DrinkData } from "@app/data/drinkData"
+import { AtHomeData } from "@app/data/atHomeData"
 import {
   brewedCoffeeData,
   cappucinoData,
   expressoData,
-} from "@/app/data/hotCoffeesData";
-import styles from "@/app/menu/Menu.module.css";
-import Link from "next/link";
+} from "@app/data/hotCoffeesData"
+import styles from "../../menu.module.css"
+import Link from "next/link"
 
 const HotCoffees = () => {
   return (
@@ -76,7 +76,7 @@ const HotCoffees = () => {
         </div>
       </section>
     </main>
-  );
-};
+  )
+}
 
-export default HotCoffees;
+export default HotCoffees
