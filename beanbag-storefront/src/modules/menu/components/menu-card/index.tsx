@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react"
 import { MenuCardType } from "../../../../types/types"
 import { CldImage } from "next-cloudinary"

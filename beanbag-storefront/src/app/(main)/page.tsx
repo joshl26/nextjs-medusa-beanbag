@@ -38,7 +38,6 @@ export default async function Home() {
         <div className={styles.spacer} />
       </section>
 
-      {/* <FeaturedProducts collections={collections} /> */}
     </Suspense>
   )
 }

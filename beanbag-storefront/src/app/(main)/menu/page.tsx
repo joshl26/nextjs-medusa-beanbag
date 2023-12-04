@@ -1,17 +1,34 @@
-"use client"
-
 import React from "react"
+import { getCategoriesList, getCollectionsList } from "@lib/data"
 import { MenuCardDataType } from "../../../types/types"
 import MenuCard from "@modules/menu/components/menu-card"
 import { DrinkData } from "@app/data/drinkData"
 import { AtHomeData } from "@app/data/atHomeData"
 import styles from "./menu.module.css"
 import Link from "next/link"
+import FeaturedProducts from "@modules/home/components/featured-products(old)"
+import MenuItems from "@modules/menu/components/menu-items"
 
-const Menu = () => {
+export default async function Menu() {
+  const { collections } = await getCollectionsList(0, 3)
+  const { product_categories } = await getCategoriesList(0, 100)
+
+  console.log(collections, product_categories)
+
   return (
     <main className="main">
+      {/* <FeaturedProducts collections={collections} /> */}
+
       <section className={styles.menu_section}>
+        <div className={styles.menu_links_container}>
+          <MenuItems
+            collections={collections}
+            product_categories={product_categories}
+          />
+        </div>
+      </section>
+
+      {/* <section className={styles.menu_section}>
         <div className={styles.menu_links_container}>
           <div className={styles.spacer_small} />
           <h3>Drinks</h3>
@@ -57,9 +74,7 @@ const Menu = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
   )
 }
-
-export default Menu

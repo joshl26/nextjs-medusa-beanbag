@@ -62,3 +62,11 @@ a {
   max-width: var(--max-width);
   margin: 0 auto;
 }
+
+.spacer_small {
+  height: 10px;
+}
+
+.spacer {
+  height: 50px;
+}
