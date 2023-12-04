@@ -54,11 +54,14 @@ const ImageOrPlaceholder = ({
       // className="absolute inset-0 object-cover object-center"
       draggable={false}
       quality={50}
-      sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
-      fill
+      width={200}
+      height={200}
+      // sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
+      // fill
     />
   ) : (
     <div>
+      {/* <PlaceholderImage size={size === "small" ? 16 : 24} /> */}
       <PlaceholderImage size={size === "small" ? 16 : 24} />
     </div>
   )

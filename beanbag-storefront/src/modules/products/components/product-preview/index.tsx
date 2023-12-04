@@ -13,7 +13,9 @@ const ProductPreview = ({
 }: ProductPreviewType) => (
   <Link href={`/products/${handle}`} className="group">
     <div>
-      <Thumbnail thumbnail={thumbnail} size="full" isFeatured={isFeatured} />
+      <div>
+        <Thumbnail thumbnail={thumbnail} size="full" isFeatured={isFeatured} />
+      </div>
       <div>
         <Text>{title}</Text>
         <div>
@@ -31,7 +33,7 @@ const ProductPreview = ({
               </Text>
             </>
           ) : (
-            <div ></div>
+            <div></div>
           )}
         </div>
       </div>

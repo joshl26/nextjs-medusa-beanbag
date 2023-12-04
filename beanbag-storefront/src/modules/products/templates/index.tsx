@@ -30,23 +30,20 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
 
   return (
     <ProductProvider product={product}>
-      <div >
-        <div >
+      <div>
+        <div>
           <ProductInfo product={product} />
           <ProductTabs product={product} />
         </div>
-        <div >
+        <div style={{ width: "200px" }}>
           <ImageGallery images={product?.images || []} />
         </div>
-        <div
-          
-          ref={infoRef}
-        >
+        <div ref={infoRef}>
           {isOnboarding && <ProductOnboardingCta />}
           <ProductActions product={product} />
         </div>
       </div>
-      <div >
+      <div>
         <RelatedProducts product={product} />
       </div>
       <MobileActions product={product} show={!inView} />
