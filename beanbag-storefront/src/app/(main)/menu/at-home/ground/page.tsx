@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "@/app/menu/at-home/ground/Ground.module.css";
+import React from "react"
+import styles from "@app/(main)/menu/at-home/ground/Ground.module.css"
 
 const Ground = () => {
   return (
@@ -9,7 +9,7 @@ const Ground = () => {
         <h1>Ground Section - To Be Completed</h1>
       </div>
     </main>
-  );
-};
+  )
+}
 
-export default Ground;
+export default Ground

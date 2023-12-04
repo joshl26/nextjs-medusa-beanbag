@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "@/app/menu/at-home/whole-bean/WholeBean.module.css";
+import React from "react"
+import styles from "@app/(main)/menu/at-home/whole-bean/WholeBean.module.css"
 
 const WholeBean = () => {
   return (
@@ -9,7 +9,7 @@ const WholeBean = () => {
         <h1>Whole Bean Section - To Be Completed</h1>
       </div>
     </main>
-  );
-};
+  )
+}
 
-export default WholeBean;
+export default WholeBean

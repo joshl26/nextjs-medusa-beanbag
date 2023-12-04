@@ -21,7 +21,7 @@ export const DrinkData = [
     id: 4,
     title: "Frappuccinos",
     imgUrl: "BeanbagCoffee/frappucino_jsqeaj",
-    href: "/menu/drinks/frappucinos",
+    href: "/menu/drinks/frappuccinos",
   },
   {
     id: 5,
@@ -35,4 +35,4 @@ export const DrinkData = [
     imgUrl: "BeanbagCoffee/iced-teas_fhmnsh",
     href: "/menu/drinks/iced-teas",
   },
-];
+]

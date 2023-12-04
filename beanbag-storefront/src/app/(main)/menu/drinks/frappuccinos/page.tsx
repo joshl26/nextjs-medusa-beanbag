@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "@/app/menu/drinks/frappucinos/Frappucinos.module.css";
+import React from "react"
+import styles from "@app/(main)/menu/drinks/frappuccinos/Frappuccinos.module.css"
 
 const Frappucinos = () => {
   return (
@@ -9,7 +9,7 @@ const Frappucinos = () => {
         <h1>Frappucinos Section - To Be Completed</h1>
       </div>
     </main>
-  );
-};
+  )
+}
 
-export default Frappucinos;
+export default Frappucinos
