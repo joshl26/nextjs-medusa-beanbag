@@ -49,8 +49,8 @@ a {
 }
 
 .root-container {
-  /* max-width: var(--max-width);
-  margin: 0 auto; */
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
 
 .main {

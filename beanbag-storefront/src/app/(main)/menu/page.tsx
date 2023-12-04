@@ -4,7 +4,6 @@ import { MenuCardDataType } from "../../../types/types"
 import MenuCard from "@modules/menu/components/menu-card"
 import { DrinkData } from "@app/data/drinkData"
 import { AtHomeData } from "@app/data/atHomeData"
-import styles from "./menu.module.css"
 import Link from "next/link"
 import FeaturedProducts from "@modules/home/components/featured-products(old)"
 import MenuItems from "@modules/menu/components/menu-items"
@@ -19,14 +18,10 @@ export default async function Menu() {
     <main className="main">
       {/* <FeaturedProducts collections={collections} /> */}
 
-      <section className={styles.menu_section}>
-        <div className={styles.menu_links_container}>
-          <MenuItems
-            collections={collections}
-            product_categories={product_categories}
-          />
-        </div>
-      </section>
+      <MenuItems
+        collections={collections}
+        product_categories={product_categories}
+      />
 
       {/* <section className={styles.menu_section}>
         <div className={styles.menu_links_container}>

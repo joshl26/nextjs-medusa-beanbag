@@ -37,7 +37,6 @@ export default async function Home() {
         </p>
         <div className={styles.spacer} />
       </section>
-
     </Suspense>
   )
 }

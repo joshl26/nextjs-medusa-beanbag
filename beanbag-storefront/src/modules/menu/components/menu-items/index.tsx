@@ -3,6 +3,8 @@
 import { ProductCategoryWithChildren } from "@lib/data"
 import { ProductCollection, ProductCategory } from "@medusajs/medusa"
 import Link from "next/link"
+import { MenuCardDataType } from "types/types"
+import styles from "./menu-items.module.css"
 // import ProductRail from "./product-rail"
 
 const MenuItems = ({
@@ -25,8 +27,8 @@ const MenuItems = ({
   // console.log(drinkCategories)
 
   return (
-    <div>
-      <div>
+    <section className={styles.menu_section}>
+      <div className={styles.menu_links_container}>
         {/* <ul>
           {collections.map((collection) => (
             <li key={collection.id}>
@@ -73,7 +75,30 @@ const MenuItems = ({
           ))}
         </ul>
       </div>
-    </div>
+      <div className={styles.menu_container}>
+        <h2>Menu</h2>
+        <div className={styles.spacer} />
+        <p className={styles.paragraph}>Drinks</p>
+        <div className={styles.spacer} />
+        <div className={styles.menu_divider} />
+        <div className={styles.spacer} />
+        <div className={styles.menu_card_container}>
+          {/* {drinkCategories.map((menuCard: MenuCardDataType) => (
+            <MenuCard key={menuCard.id} menuCard={menuCard} />
+          ))} */}
+        </div>
+        <div className={styles.spacer} />
+        <p className={styles.paragraph}>At Home</p>
+        <div className={styles.spacer} />
+        <div className={styles.menu_divider} />
+        <div className={styles.spacer} />
+        <div className={styles.menu_card_container}>
+          {/* {AtHomeData.map((menuCard: MenuCardDataType) => (
+            <MenuCard key={menuCard.id} menuCard={menuCard} />
+          ))} */}
+        </div>
+      </div>
+    </section>
   )
 }
 
