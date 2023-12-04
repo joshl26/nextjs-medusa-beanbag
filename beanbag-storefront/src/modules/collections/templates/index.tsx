@@ -57,11 +57,11 @@ const CollectionTemplate: React.FC<{ collection: ProductCollection }> = ({
   }, [inView, hasNextPage])
 
   return (
-    <div >
-      <div >
+    <div>
+      <div>
         <h1>{collection.title}</h1>
       </div>
-      <ul >
+      <ul>
         {previews.map((p) => (
           <li key={p.id}>
             <ProductPreview {...p} />
@@ -74,10 +74,7 @@ const CollectionTemplate: React.FC<{ collection: ProductCollection }> = ({
             </li>
           ))}
       </ul>
-      <div
-        
-        ref={ref}
-      >
+      <div ref={ref}>
         <span ref={ref}></span>
       </div>
     </div>

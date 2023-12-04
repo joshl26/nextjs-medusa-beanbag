@@ -70,3 +70,7 @@ a {
 .spacer {
   height: 50px;
 }
+
+ul {
+  list-style-type: none;
+}

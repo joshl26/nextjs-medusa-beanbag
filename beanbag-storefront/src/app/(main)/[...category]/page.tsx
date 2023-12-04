@@ -1,4 +1,4 @@
-import { getCategoryByHandle } from "@lib/data"
+import { getCategoriesList, getCategoryByHandle } from "@lib/data"
 import CategoryTemplate from "@modules/categories/templates"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
@@ -8,13 +8,13 @@ type Props = {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { product_categories } = await getCategoryByHandle(
+  const { product_categories: product_category } = await getCategoryByHandle(
     params.category
   ).catch((err) => {
     notFound()
   })
 
-  const category = product_categories[0]
+  const category = product_category[0]
 
   if (!category) {
     notFound()
@@ -27,11 +27,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function CategoryPage({ params }: Props) {
+  const { product_categories: all_categories } = await getCategoriesList(0, 100)
+
   const { product_categories } = await getCategoryByHandle(
     params.category
   ).catch((err) => {
     notFound()
   })
 
-  return <CategoryTemplate categories={product_categories} />
+  return (
+    <CategoryTemplate
+      all_categories={all_categories}
+      categories={product_categories}
+    />
+  )
 }
