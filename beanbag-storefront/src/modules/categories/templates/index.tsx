@@ -130,21 +130,25 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({
               ))}
             <h1>{category.name}</h1>
           </div>
-          <div className="spacer_small"></div>
-          {category.description && (
+          <div className="spacer_med"></div>
+
+          {/* {category.description && (
             <div>
               <h3>{category.description}</h3>
             </div>
-          )}
+          )} */}
           {category.category_children && (
             <div>
               <ul>
                 {category.category_children?.map((c) => (
                   <li key={c.id}>
                     {/* <UnderlineLink href={`/${c.handle}`}> */}
-                    {c.name}
-                    {/* </UnderlineLink> */}{" "}
-                    <ul>
+                    <p className={styles.paragraph}>{c.name}</p>
+
+                    <div className="spacer_small"></div>
+                    <div className="divider"></div>
+                    {/* </UnderlineLink> */}
+                    <ul className={styles.row}>
                       {all_categories
                         .filter(
                           (category) => category.parent_category?.name == c.name
@@ -162,6 +166,7 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({
                                   </li>
                                 ))}
                             </ul>
+                            <div className="spacer"></div>
                           </li>
                         ))}
                       {isFetchingNextPage &&

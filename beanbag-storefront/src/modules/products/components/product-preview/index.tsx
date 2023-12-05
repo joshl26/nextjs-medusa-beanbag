@@ -29,7 +29,7 @@ const ProductPreview = ({
               //   "text-ui-fg-interactive": price.price_type === "sale",
               // })}
               >
-                {/* {price.calculated_price} */}
+                {price.calculated_price}
               </Text>
             </>
           ) : (

@@ -67,10 +67,19 @@ a {
   height: 10px;
 }
 
+.spacer_med {
+  height: 35px;
+}
+
 .spacer {
   height: 50px;
 }
 
 ul {
   list-style-type: none;
+}
+
+.divider {
+  border-bottom: var(--border-color);
+  margin-bottom: 1rem;
 }

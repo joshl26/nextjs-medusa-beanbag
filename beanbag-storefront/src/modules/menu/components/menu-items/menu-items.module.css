@@ -53,7 +53,13 @@
 
 .menu_link {
   font-family: raleway;
-  font-weight: 500;
-  line-height: 1.75;
+  font-weight: 400;
+  line-height: 2.25;
   font-size: 1rem;
+}
+
+.row {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
 }

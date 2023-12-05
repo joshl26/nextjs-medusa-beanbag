@@ -44,7 +44,7 @@ const MenuItems = ({
             </li>
           ))}
         </ul>
-        <div className="spacer"></div>
+        <div className="spacer_small"></div>
         <h3>At Home</h3>
         <div className="spacer_small" />
         <ul>

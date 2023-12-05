@@ -78,7 +78,7 @@ const Nav = () => {
               className={styles.button_joinnow}
               buttonText="Join Now"
             /> */}
-            <Hamburger setOpen={toggle} />
+            {/* <Hamburger setOpen={toggle} /> */}
           </div>
           <div className={styles.menu}>
             <Link onClick={() => handleMenuClick()} href="">
@@ -98,12 +98,11 @@ const Nav = () => {
               open={searchModalOpen}
             />
           )} */}
-
-          <CartDropdown />
         </div>
-
+        <div style={{ display: "absolute", top: "0", right: "100px" }}></div>
         <div className={styles.menu}></div>
       </nav>
+      <CartDropdown />
     </header>
   )
 }
