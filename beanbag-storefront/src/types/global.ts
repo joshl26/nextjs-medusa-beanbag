@@ -1,4 +1,5 @@
 import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
+import { ProductCategory } from "@medusajs/product"
 import { NextPage } from "next"
 import { AppProps } from "next/app"
 import { ReactElement, ReactNode } from "react"
@@ -6,6 +7,7 @@ import { ReactElement, ReactNode } from "react"
 export type CollectionData = {
   id: string
   title: string
+  handle: string
 }
 
 export type FeaturedProduct = {
@@ -54,6 +56,7 @@ export type ProductPreviewType = {
   handle: string | null
   thumbnail: string | null
   created_at?: Date
+  collection?: CollectionData | null
   price?: {
     calculated_price: string
     original_price: string

@@ -16,7 +16,7 @@ import { useInView } from "react-intersection-observer"
 import Link from "next/link"
 import UnderlineLink from "@modules/common/components/interactive-link"
 import { notFound } from "next/navigation"
-import styles from "./menu-items.module.css"
+import styles from "@modules/menu/components/menu-items/menu-items.module.css"
 
 type CategoryTemplateProps = {
   categories: ProductCategoryWithChildren[]
@@ -32,8 +32,6 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({
 
   const category = categories[categories.length - 1]
   const parents = categories.slice(0, categories.length - 1)
-
-  console.log({ all_categories })
 
   if (!category) notFound()
 
@@ -68,12 +66,7 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({
     region: cart?.region,
   })
 
-  useEffect(() => {
-    if (inView && hasNextPage) {
-      fetchNextPage()
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [inView, hasNextPage])
+  let filteredPreviews = previews.filter((preview) => preview?.handle == "1002")
 
   let drinkCategories = all_categories.filter(
     (category) => category.parent_category?.name == "Drinks"
@@ -83,18 +76,33 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({
     (category) => category.parent_category?.name == "At Home"
   )
 
+  // console.log(category.category_children)
+  // console.log(all_categories)
+  // console.log(category)
+  // console.log(categories)
+  console.log(previews)
+
+  console.log(filteredPreviews)
+  // console.log(children)
+
+  useEffect(() => {
+    if (inView && hasNextPage) {
+      fetchNextPage()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inView, hasNextPage])
+
   return (
     <section className={styles.menu_section}>
       <div className={styles.menu_links_container}>
         {/* <ProductRail collection={collection} /> */}
-        <h3>Drinks</h3>
-
         <div className="spacer_small" />
+        <h3>Drinks</h3>
         <ul>
           {drinkCategories.map((category) => (
             <li key={category.id}>
               <Link href={`/${category.handle}`}>
-                <h1>{category.name}</h1>
+                <h1 className={styles.menu_link}>{category.name}</h1>
               </Link>
               {/* <ProductRail collection={collection} />*/}
             </li>
@@ -107,14 +115,13 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({
           {atHomeCategories.map((category) => (
             <li key={category.id}>
               <Link href={`/${category.handle}`}>
-                <h1>{category.name}</h1>
+                <h1 className={styles.menu_link}>{category.name}</h1>
               </Link>
               {/* <ProductRail collection={collection} />  */}
             </li>
           ))}
         </ul>
       </div>
-
       <div className={styles.menu_container}>
         <div>
           <div>
@@ -126,25 +133,72 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({
               ))}
             <h1>{category.name}</h1>
           </div>
+          <div className="spacer_small"></div>
           {category.description && (
             <div>
-              <p>{category.description}</p>
+              <h3>{category.description}</h3>
             </div>
           )}
           {category.category_children && (
             <div>
               <ul>
                 {category.category_children?.map((c) => (
-                  <li key={c.id}>
-                    <UnderlineLink href={`/${c.handle}`}>
+                  <>
+                    <li key={c.id}>
+                      {/* <UnderlineLink href={`/${c.handle}`}> */}
                       {c.name}
-                    </UnderlineLink>
-                  </li>
+                      {/* </UnderlineLink> */}
+                    </li>
+                    <ul>
+                      {all_categories
+                        .filter(
+                          (category) => category.parent_category?.name == c.name
+                        )
+                        .map((c) => (
+                          <li key={c.id}>
+                            <ul>
+                              {previews
+                                .filter(
+                                  (preview) => preview?.handle == c.handle
+                                )
+                                .map((c) => (
+                                  <li key={c.id}>
+                                    <ProductPreview {...c} />
+                                  </li>
+                                ))}
+                            </ul>
+                          </li>
+                        ))}
+
+                      {/* {children?.map((c) => (
+                        <li key={c.id}>{c.name}</li>
+                      ))} */}
+                      {/* <h1>
+                        {previews.filter((preview) => {
+                          preview.collection?.title === c.name
+                        })}
+                      </h1> */}
+
+                      {/* {previews.map((p) => (
+                        <li key={p.id}>
+                          <ProductPreview {...p} />
+                        </li>
+                      ))} */}
+                      {isFetchingNextPage &&
+                        repeat(getNumberOfSkeletons(infiniteData?.pages)).map(
+                          (index) => (
+                            <li key={index}>
+                              <SkeletonProductPreview />
+                            </li>
+                          )
+                        )}
+                    </ul>
+                  </>
                 ))}
               </ul>
             </div>
           )}
-          <ul>
+          {/* <ul>
             {previews.map((p) => (
               <li key={p.id}>
                 <ProductPreview {...p} />
@@ -156,7 +210,7 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({
                   <SkeletonProductPreview />
                 </li>
               ))}
-          </ul>
+          </ul> */}
           <div ref={ref}>
             <span ref={ref}></span>
           </div>

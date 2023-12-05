@@ -1,4 +1,8 @@
-import { getCategoriesList, getCategoryByHandle } from "@lib/data"
+import {
+  getCategoriesList,
+  getCategoryByHandle,
+  getProductsByCategoryHandle,
+} from "@lib/data"
 import CategoryTemplate from "@modules/categories/templates"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
@@ -27,6 +31,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function CategoryPage({ params }: Props) {
+  console.log(params)
+
+  // const  test  = await getProductsByCategoryHandle({1,"hot-coffee","1", ""})
+
   const { product_categories: all_categories } = await getCategoriesList(0, 100)
 
   const { product_categories } = await getCategoryByHandle(

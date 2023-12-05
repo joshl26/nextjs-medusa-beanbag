@@ -22,12 +22,15 @@ const transformProductPreview = (
     }, variants[0])
   }
 
+  // console.log(product)
+
   return {
     id: product.id!,
     title: product.title!,
     handle: product.handle!,
     thumbnail: product.thumbnail!,
     created_at: product.created_at,
+    collection: product.collection,
     price: cheapestVariant
       ? {
           calculated_price: formatAmount({
