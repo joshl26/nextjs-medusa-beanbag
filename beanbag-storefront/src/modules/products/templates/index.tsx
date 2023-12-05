@@ -11,6 +11,8 @@ import MobileActions from "@modules/products/components/mobile-actions"
 import ProductOnboardingCta from "@modules/products/components/product-onboarding-cta"
 import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
 import ProductActions from "../components/product-actions"
+import styles from "./templates.module.css"
+import Link from "next/link"
 
 type ProductTemplateProps = {
   product: PricedProduct
@@ -32,6 +34,17 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
     <ProductProvider product={product}>
       <div>
         <div>
+          <div className={styles.row}>
+            <Link href="/menu">
+              <h2 className={styles.path}>Menu/</h2>
+            </Link>
+            <Link href={`/${product.collection?.handle}`}>
+              <h2 className={styles.path}>{product.collection?.title}/</h2>
+            </Link>
+
+            <h2 className={styles.page}>{product.title}</h2>
+          </div>
+
           <ProductInfo product={product} />
           <ProductTabs product={product} />
         </div>
@@ -43,10 +56,10 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
           <ProductActions product={product} />
         </div>
       </div>
-      <div>
+      {/* <div>
         <RelatedProducts product={product} />
-      </div>
-      <MobileActions product={product} show={!inView} />
+      </div> */}
+      {/* <MobileActions product={product} show={!inView} /> */}
     </ProductProvider>
   )
 }
