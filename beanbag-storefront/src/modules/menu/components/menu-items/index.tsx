@@ -31,13 +31,14 @@ const MenuItems = ({
     <section className={styles.menu_section}>
       <div className={styles.menu_links_container}>
         {/* <ProductRail collection={collection} /> */}
-        <h3>Drinks</h3>
         <div className="spacer_small" />
+        <h3>Drinks</h3>
+
         <ul>
           {drinkCategories.map((category) => (
             <li key={category.id}>
               <Link href={`/${category.handle}`}>
-                <h1>{category.name}</h1>
+                <h1 className={styles.menu_link}>{category.name}</h1>
               </Link>
               {/* <ProductRail collection={collection} /> */}
             </li>
@@ -50,7 +51,7 @@ const MenuItems = ({
           {atHomeCategories.map((category) => (
             <li key={category.id}>
               <Link href={`/${category.handle}`}>
-                <h1>{category.name}</h1>
+                <h1 className={styles.menu_link}>{category.name}</h1>
               </Link>
               {/* <ProductRail collection={collection} /> */}
             </li>

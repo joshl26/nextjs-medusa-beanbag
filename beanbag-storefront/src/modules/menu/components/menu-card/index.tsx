@@ -22,42 +22,43 @@ const MenuCard = ({ category }: any) => {
   )
 
   return (
-    <div className={styles.container}>
-      <Link href={category.handle}>
-        <h1>{category.name}</h1>
-        <div className={styles.flex_container}>
-          <div className={styles.image_container}>
-            {filteredDrinkProducts?.imgUrl ? (
-              <CldImage
-                sizes="100vw"
-                crop="thumb"
-                className={styles.image}
-                alt={filteredDrinkProducts.imgUrl}
-                width={100}
-                height={100}
-                src={filteredDrinkProducts.imgUrl}
-              />
-            ) : (
-              ""
-            )}
-            {filteredAtHomeProducts?.imgUrl ? (
-              <CldImage
-                sizes="100vw"
-                crop="thumb"
-                className={styles.image}
-                alt={filteredAtHomeProducts.imgUrl}
-                width={100}
-                height={100}
-                src={filteredAtHomeProducts.imgUrl}
-              />
-            ) : (
-              ""
-            )}
-          </div>
+    <Link
+      className={`${styles.flex_container} ${styles.menu_link}`}
+      href={category.handle}
+    >
+      <div className={styles.flex_container}>
+        <div className={styles.image_container}>
+          {filteredDrinkProducts?.imgUrl ? (
+            <CldImage
+              sizes="100vw"
+              crop="thumb"
+              className={styles.image}
+              alt={filteredDrinkProducts.imgUrl}
+              width={100}
+              height={100}
+              src={filteredDrinkProducts.imgUrl}
+            />
+          ) : (
+            ""
+          )}
+          {filteredAtHomeProducts?.imgUrl ? (
+            <CldImage
+              sizes="100vw"
+              crop="thumb"
+              className={styles.image}
+              alt={filteredAtHomeProducts.imgUrl}
+              width={100}
+              height={100}
+              src={filteredAtHomeProducts.imgUrl}
+            />
+          ) : (
+            ""
+          )}
         </div>
-        <div className={styles.spacer}></div>
-      </Link>
-    </div>
+      </div>
+      <h1 className={styles.menu_link}>{category.name}</h1>
+      <div className={styles.spacer}></div>
+    </Link>
   )
 }
 

@@ -36,6 +36,7 @@ const Nav = () => {
         <div className={styles.side_menu}>
           {menuEnabled ? <SideMenu setMenuEnabled={setMenuEnabled} /> : ""}
         </div>
+        <MobileMenu />
         <div className={styles.spacer} />
         <div className={styles.navbar}>
           <div className={styles.link_container}>
@@ -67,46 +68,44 @@ const Nav = () => {
               className={styles.button_signin}
               buttonText="Sign In"
             />
-            <RoundButton
+            <Link href="/account">
+              <RoundButton
+                className={styles.button_joinnow}
+                href="/account"
+                buttonText="Account"
+              />
+            </Link>
+            {/* <RoundButton
               href="/join"
               className={styles.button_joinnow}
               buttonText="Join Now"
-            />
+            /> */}
+            <Hamburger setOpen={toggle} />
           </div>
           <div className={styles.menu}>
             <Link onClick={() => handleMenuClick()} href="">
-              {/* <CldImage
+              <CldImage
                 className={styles.hamburger_menu}
                 alt="BeanbagCoffee/hamburger_ztvs3l"
                 width="50"
                 height="50"
                 src="BeanbagCoffee/hamburger_ztvs3l"
-              /> */}
+              />
             </Link>
           </div>
+          {/* {process.env.FEATURE_SEARCH_ENABLED && (
+            <DesktopSearchModal
+              state={searchModalState}
+              close={searchModalClose}
+              open={searchModalOpen}
+            />
+          )} */}
+
+          <CartDropdown />
         </div>
 
-        {/* <div>
-          <Hamburger setOpen={toggle} />
-        </div> */}
-
-        {/* <SideMenu searchModalOpen={searchModalOpen} /> */}
-
-        {/* <div>
-            <Link href="/">Medusa Store</Link>
-          </div> */}
-
-        {/* {process.env.FEATURE_SEARCH_ENABLED && (
-          <DesktopSearchModal
-            state={searchModalState}
-            close={searchModalClose}
-            open={searchModalOpen}
-          />
-        )} */}
-        {/* <Link href="/account">Account</Link> */}
-        {/* <CartDropdown /> */}
+        <div className={styles.menu}></div>
       </nav>
-      {/* <MobileMenu /> */}
     </header>
   )
 }

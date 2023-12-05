@@ -7,6 +7,7 @@ import { useCollections, useMeCustomer } from "medusa-react"
 import Link from "next/link"
 import ReactCountryFlag from "react-country-flag"
 import { Heading } from "@medusajs/ui"
+import styles from "./main-menu.module.css"
 
 const MainMenu = () => {
   const { collections } = useCollections()
@@ -24,7 +25,7 @@ const MainMenu = () => {
   const setScreenSearch = () => setScreen("search")
 
   return (
-    <div>
+    <div className={styles.container}>
       <div>
         <div>
           <button onClick={setScreenCountry}>
@@ -33,7 +34,7 @@ const MainMenu = () => {
           </button>
         </div>
 
-        <Heading>Medusa Store</Heading>
+        <Heading>Beanbag Store</Heading>
 
         <div>
           <button onClick={close}>

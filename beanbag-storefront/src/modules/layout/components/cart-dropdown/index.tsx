@@ -10,6 +10,7 @@ import Thumbnail from "@modules/products/components/thumbnail"
 import { formatAmount, useCart } from "medusa-react"
 import Link from "next/link"
 import { Fragment } from "react"
+import styles from "./cart-dropdown.module.css"
 
 const CartDropdown = () => {
   const { cart, totalItems } = useCart()
@@ -19,7 +20,7 @@ const CartDropdown = () => {
 
   return (
     <div onMouseEnter={open} onMouseLeave={close}>
-      <Popover>
+      <Popover className={styles.container}>
         <Popover.Button>
           <Link href="/cart">{`Cart (${totalItems})`}</Link>
         </Popover.Button>
@@ -39,27 +40,21 @@ const CartDropdown = () => {
             </div>
             {cart && items?.length ? (
               <>
-                <div >
+                <div>
                   {items
                     .sort((a, b) => {
                       return a.created_at > b.created_at ? -1 : 1
                     })
                     .map((item) => (
-                      <div
-                        
-                        key={item.id}
-                      >
-                        <Link
-                          href={`/products/${item.variant.product.handle}`}
-                          
-                        >
+                      <div key={item.id}>
+                        <Link href={`/products/${item.variant.product.handle}`}>
                           <Thumbnail thumbnail={item.thumbnail} size="square" />
                         </Link>
-                        <div >
-                          <div >
-                            <div >
+                        <div>
+                          <div>
+                            <div>
                               <div>
-                                <h3 >
+                                <h3>
                                   <Link
                                     href={`/products/${item.variant.product.handle}`}
                                   >
@@ -70,7 +65,7 @@ const CartDropdown = () => {
                                 <LineItemOptions variant={item.variant} />
                                 <span>Quantity: {item.quantity}</span>
                               </div>
-                              <div >
+                              <div>
                                 <LineItemPrice
                                   region={cart.region}
                                   item={item}
@@ -79,12 +74,9 @@ const CartDropdown = () => {
                               </div>
                             </div>
                           </div>
-                          <div >
+                          <div>
                             <div>
-                              <button
-                                
-                                onClick={() => deleteItem(item.id)}
-                              >
+                              <button onClick={() => deleteItem(item.id)}>
                                 <Trash size={14} />
                                 <span>Remove</span>
                               </button>
@@ -94,13 +86,12 @@ const CartDropdown = () => {
                       </div>
                     ))}
                 </div>
-                <div >
-                  <div >
-                    <span >
-                      Subtotal{" "}
-                      <span >(excl. taxes)</span>
+                <div>
+                  <div>
+                    <span>
+                      Subtotal <span>(excl. taxes)</span>
                     </span>
-                    <span >
+                    <span>
                       {formatAmount({
                         amount: cart.subtotal || 0,
                         region: cart.region,
@@ -109,16 +100,14 @@ const CartDropdown = () => {
                     </span>
                   </div>
                   <Link href="/cart" passHref>
-                    <Button  size="large">
-                      Go to cart
-                    </Button>
+                    <Button size="large">Go to cart</Button>
                   </Link>
                 </div>
               </>
             ) : (
               <div>
-                <div >
-                  <div >
+                <div>
+                  <div>
                     <span>0</span>
                   </div>
                   <span>Your shopping bag is empty.</span>

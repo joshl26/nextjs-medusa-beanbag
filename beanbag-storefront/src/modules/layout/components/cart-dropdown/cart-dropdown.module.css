@@ -1,0 +1,8 @@
+.container {
+  position: absolute;
+  background-color: aliceblue;
+  z-index: 10;
+  right: 25px;
+  width: auto;
+  padding: 1rem;
+}
