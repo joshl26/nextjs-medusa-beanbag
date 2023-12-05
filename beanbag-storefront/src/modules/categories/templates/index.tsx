@@ -66,8 +66,6 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({
     region: cart?.region,
   })
 
-  let filteredPreviews = previews.filter((preview) => preview?.handle == "1002")
-
   let drinkCategories = all_categories.filter(
     (category) => category.parent_category?.name == "Drinks"
   )
@@ -80,9 +78,8 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({
   // console.log(all_categories)
   // console.log(category)
   // console.log(categories)
-  console.log(previews)
-
-  console.log(filteredPreviews)
+  // console.log(previews)
+  // console.log(filteredPreviews)
   // console.log(children)
 
   useEffect(() => {
@@ -143,12 +140,10 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({
             <div>
               <ul>
                 {category.category_children?.map((c) => (
-                  <>
-                    <li key={c.id}>
-                      {/* <UnderlineLink href={`/${c.handle}`}> */}
-                      {c.name}
-                      {/* </UnderlineLink> */}
-                    </li>
+                  <li key={c.id}>
+                    {/* <UnderlineLink href={`/${c.handle}`}> */}
+                    {c.name}
+                    {/* </UnderlineLink> */}{" "}
                     <ul>
                       {all_categories
                         .filter(
@@ -169,21 +164,6 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({
                             </ul>
                           </li>
                         ))}
-
-                      {/* {children?.map((c) => (
-                        <li key={c.id}>{c.name}</li>
-                      ))} */}
-                      {/* <h1>
-                        {previews.filter((preview) => {
-                          preview.collection?.title === c.name
-                        })}
-                      </h1> */}
-
-                      {/* {previews.map((p) => (
-                        <li key={p.id}>
-                          <ProductPreview {...p} />
-                        </li>
-                      ))} */}
                       {isFetchingNextPage &&
                         repeat(getNumberOfSkeletons(infiniteData?.pages)).map(
                           (index) => (
@@ -193,24 +173,11 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({
                           )
                         )}
                     </ul>
-                  </>
+                  </li>
                 ))}
               </ul>
             </div>
           )}
-          {/* <ul>
-            {previews.map((p) => (
-              <li key={p.id}>
-                <ProductPreview {...p} />
-              </li>
-            ))}
-            {isFetchingNextPage &&
-              repeat(getNumberOfSkeletons(infiniteData?.pages)).map((index) => (
-                <li key={index}>
-                  <SkeletonProductPreview />
-                </li>
-              ))}
-          </ul> */}
           <div ref={ref}>
             <span ref={ref}></span>
           </div>
