@@ -83,3 +83,17 @@ ul {
   border-bottom: var(--border-color);
   margin-bottom: 1rem;
 }
+
+.thumbnail {
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.thumbnail_image {
+}
+
+.title {
+  font-family: raleway;
+  font-weight: 500;
+}

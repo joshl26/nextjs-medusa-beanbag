@@ -144,8 +144,7 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({
                   <li key={c.id}>
                     {/* <UnderlineLink href={`/${c.handle}`}> */}
                     <p className={styles.paragraph}>{c.name}</p>
-
-                    <div className="spacer_small"></div>
+                    <div className="spacer"></div>
                     <div className="divider"></div>
                     {/* </UnderlineLink> */}
                     <ul className={styles.row}>
