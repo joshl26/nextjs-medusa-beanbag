@@ -1,0 +1,18 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+  height: 100%;
+}
+
+.title {
+  font-family: raleway;
+  font-weight: 800;
+  font-size: 1.5rem;
+}

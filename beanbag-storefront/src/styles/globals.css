@@ -97,3 +97,18 @@ ul {
   font-family: raleway;
   font-weight: 500;
 }
+
+.row {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  max-width: var(--max-width);
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+}

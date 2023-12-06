@@ -2,7 +2,8 @@
   position: absolute;
   background-color: aliceblue;
   z-index: 10;
-  right: 25px;
+  top: 10vh;
+  right: 10px;
   width: auto;
   padding: 1rem;
 }
