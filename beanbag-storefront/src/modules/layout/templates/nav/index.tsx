@@ -68,11 +68,15 @@ const Nav = () => {
               className={styles.button_signin}
               buttonText="Sign In"
             />
-            <RoundButton
+            <div style={{ width: "100px", height: "100%" }}>
+              <CartDropdown />
+            </div>
+
+            {/* <RoundButton
               className={styles.button_joinnow}
               href="/account"
               buttonText="Account"
-            />
+            /> */}
             {/* <RoundButton
               href="/join"
               className={styles.button_joinnow}
@@ -102,7 +106,6 @@ const Nav = () => {
         <div style={{ display: "absolute", top: "0", right: "100px" }}></div>
         <div className={styles.menu}></div>
       </nav>
-      <CartDropdown />
     </header>
   )
 }
