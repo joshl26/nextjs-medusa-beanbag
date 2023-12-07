@@ -68,9 +68,7 @@ const Nav = () => {
               className={styles.button_signin}
               buttonText="Sign In"
             />
-            <div style={{ width: "100px", height: "100%" }}>
-              <CartDropdown />
-            </div>
+            <CartDropdown />
 
             {/* <RoundButton
               className={styles.button_joinnow}
@@ -85,7 +83,11 @@ const Nav = () => {
             {/* <Hamburger setOpen={toggle} /> */}
           </div>
           <div className={styles.menu}>
-            <Link onClick={() => handleMenuClick()} href="">
+            <Link
+              style={{ paddingTop: "0.625rem" }}
+              onClick={() => handleMenuClick()}
+              href=""
+            >
               <CldImage
                 className={styles.hamburger_menu}
                 alt="BeanbagCoffee/hamburger_ztvs3l"

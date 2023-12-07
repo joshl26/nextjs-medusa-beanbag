@@ -19,115 +19,129 @@ const CartDropdown = () => {
   const { state, open, close } = useCartDropdown()
 
   return (
-    <Popover
-      className={styles.container}
+    <div
+      style={{ position: "relative", height: "100%", width: "75px" }}
       onMouseEnter={open}
       onMouseLeave={close}
     >
-      <Popover.Button>
-        <Link href="/cart">{`Cart (${totalItems})`}</Link>
-      </Popover.Button>
-      <Transition
-        show={state}
-        as={Fragment}
-        enter="transition ease-out duration-200"
-        enterFrom="opacity-0 translate-y-1"
-        enterTo="opacity-100 translate-y-0"
-        leave="transition ease-in duration-150"
-        leaveFrom="opacity-100 translate-y-0"
-        leaveTo="opacity-0 translate-y-1"
+      <Popover
+        style={{ right: "0px", top: "13px" }}
+        className={styles.container}
       >
-        <Popover.Panel static>
-          <div>
-            <h3>Cart</h3>
-          </div>
-          {cart && items?.length ? (
-            <>
-              <div>
-                {items
-                  .sort((a, b) => {
-                    return a.created_at > b.created_at ? -1 : 1
-                  })
-                  .map((item) => (
-                    <div key={item.id}>
-                      <Link href={`/products/${item.variant.product.handle}`}>
-                        <Thumbnail thumbnail={item.thumbnail} size="square" />
-                      </Link>
-                      <div>
+        <Popover.Button
+          style={{
+            background: "transparent",
+            color: "black",
+            border: "none",
+            padding: "0.25rem",
+            height: "100%",
+          }}
+        >
+          <Link href="/cart">{`Cart (${totalItems})`}</Link>
+        </Popover.Button>
+
+        <Transition
+          show={state}
+          as={Fragment}
+          enter="transition ease-out duration-200"
+          enterFrom="opacity-0 translate-y-1"
+          enterTo="opacity-100 translate-y-0"
+          leave="transition ease-in duration-150"
+          leaveFrom="opacity-100 translate-y-0"
+          leaveTo="opacity-0 translate-y-1"
+        >
+          <Popover.Panel static>
+            <div>
+              <h3>Cart</h3>
+            </div>
+            {cart && items?.length ? (
+              <>
+                <div>
+                  {items
+                    .sort((a, b) => {
+                      return a.created_at > b.created_at ? -1 : 1
+                    })
+                    .map((item) => (
+                      <div key={item.id}>
+                        <Link href={`/products/${item.variant.product.handle}`}>
+                          <Thumbnail thumbnail={item.thumbnail} size="square" />
+                        </Link>
                         <div>
                           <div>
                             <div>
-                              <h3>
-                                <Link
-                                  href={`/products/${item.variant.product.handle}`}
-                                >
-                                  {item.title}
-                                </Link>
-                              </h3>
-                              <></>
-                              <LineItemOptions variant={item.variant} />
-                              <span>Quantity: {item.quantity}</span>
-                            </div>
-                            <div>
-                              <LineItemPrice
-                                region={cart.region}
-                                item={item}
-                                style="tight"
-                              />
+                              <div>
+                                <h3>
+                                  <Link
+                                    href={`/products/${item.variant.product.handle}`}
+                                  >
+                                    {item.title}
+                                  </Link>
+                                </h3>
+                                <></>
+                                <LineItemOptions variant={item.variant} />
+                                <span>Quantity: {item.quantity}</span>
+                              </div>
+                              <div>
+                                <LineItemPrice
+                                  region={cart.region}
+                                  item={item}
+                                  style="tight"
+                                />
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div>
                           <div>
-                            <button onClick={() => deleteItem(item.id)}>
-                              <Trash size={14} />
-                              <span>Remove</span>
-                            </button>
+                            <div>
+                              <button onClick={() => deleteItem(item.id)}>
+                                <Trash size={14} />
+                                <span>Remove</span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
-              </div>
-              <div>
-                <div>
-                  <span>
-                    Subtotal <span>(excl. taxes)</span>
-                  </span>
-                  <span>
-                    {formatAmount({
-                      amount: cart.subtotal || 0,
-                      region: cart.region,
-                      includeTaxes: false,
-                    })}
-                  </span>
+                    ))}
                 </div>
-                <Link href="/cart" passHref>
-                  <Button size="large">Go to cart</Button>
-                </Link>
-              </div>
-            </>
-          ) : (
-            <div>
-              <div>
                 <div>
-                  <span>0</span>
-                </div>
-                <span>Your shopping bag is empty.</span>
-                <div>
-                  <Link href="/store">
-                    <>
-                      <span>Go to all products page</span>
-                      <Button onClick={close}>Explore products</Button>
-                    </>
+                  <div>
+                    <span>
+                      Subtotal <span>(excl. taxes)</span>
+                    </span>
+                    <span>
+                      {formatAmount({
+                        amount: cart.subtotal || 0,
+                        region: cart.region,
+                        includeTaxes: false,
+                      })}
+                    </span>
+                  </div>
+                  <Link href="/cart" passHref>
+                    <Button size="large">Go to cart</Button>
                   </Link>
                 </div>
+              </>
+            ) : (
+              <div>
+                <div>
+                  <div>
+                    <span>0</span>
+                  </div>
+                  <span>Your shopping bag is empty.</span>
+                  <div>
+                    <Link href="/store">
+                      <>
+                        <span>Go to all products page</span>
+                        <Button onClick={close}>Explore products</Button>
+                      </>
+                    </Link>
+                  </div>
+                </div>
               </div>
-            </div>
-          )}
-        </Popover.Panel>
-      </Transition>
-    </Popover>
+            )}
+          </Popover.Panel>
+        </Transition>
+      </Popover>
+    </div>
   )
 }
 
