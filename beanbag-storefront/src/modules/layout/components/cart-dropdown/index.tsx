@@ -8,6 +8,7 @@ import LineItemPrice from "@modules/common/components/line-item-price"
 import Cart from "@modules/common/icons/cart"
 import Trash from "@modules/common/icons/trash"
 import Thumbnail from "@modules/products/components/thumbnail"
+import clsx from "clsx"
 import { formatAmount, useCart } from "medusa-react"
 import Link from "next/link"
 import { Fragment } from "react"
@@ -19,13 +20,15 @@ const CartDropdown = () => {
   const { deleteItem } = useStore()
   const { state, open, close } = useCartDropdown()
 
+  console.log(state)
+
   return (
     <div
-      style={{ position: "relative", height: "100%", width: "75px" }}
+      style={{ position: "relative", height: "100%", width: "50px" }}
       onMouseEnter={open}
       onMouseLeave={close}
     >
-      <Popover className={styles.container}>
+      <Popover className={clsx(styles.container, !state && styles.no_border)}>
         <div style={{ width: "100%", textAlign: "right" }}>
           <Popover.Button
             style={{
@@ -48,7 +51,7 @@ const CartDropdown = () => {
             >
               {!state ? (
                 <>
-                  <Cart size={17} style={{ zIndex: "-1" }} />
+                  <Cart size={22} style={{ zIndex: "-1" }} />
                   <p>{totalItems > 0 ? `(${totalItems})` : ""}</p>
                 </>
               ) : (
@@ -68,20 +71,22 @@ const CartDropdown = () => {
           leaveTo="opacity-0 translate-y-1"
         >
           <Popover.Panel style={{ minWidth: "250px" }} static>
-            <h4 style={{ zIndex: "1000", position: "absolute", top: "5px" }}>
-              {`My Cart `}{" "}
-              <p
-                style={{
-                  display: "inline",
-                  fontFamily: "raleway",
-                  fontWeight: "400",
-                }}
-              >
-                {totalItems === 1
-                  ? `| ${totalItems} item`
-                  : `| ${totalItems} items`}
-              </p>
-            </h4>
+            <Link href="/cart" passHref>
+              <h4 style={{ zIndex: "1000", position: "absolute", top: "5px" }}>
+                {`My Cart `}{" "}
+                <p
+                  style={{
+                    display: "inline",
+                    fontFamily: "raleway",
+                    fontWeight: "400",
+                  }}
+                >
+                  {totalItems === 1
+                    ? `| ${totalItems} item`
+                    : `| ${totalItems} items`}
+                </p>
+              </h4>
+            </Link>
             {cart && items?.length ? (
               <div
                 style={{

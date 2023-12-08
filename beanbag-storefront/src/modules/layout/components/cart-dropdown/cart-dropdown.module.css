@@ -34,3 +34,7 @@
     backdrop-filter: blur(10px);
   }
 }
+
+.no_border {
+  border: none;
+}
