@@ -9,6 +9,24 @@
   box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
 }
 
+.container::after {
+  
+}
+
+@media only screen and (max-width: 780px) {
+  .container {
+    right: 0;
+    top: 13px;
+  }
+}
+
+@media only screen and (min-width: 781px) {
+  .container {
+    right: 10px;
+    top: 13px;
+  }
+}
+
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
   .container {
     background: rgba(255, 255, 255, 0.7);

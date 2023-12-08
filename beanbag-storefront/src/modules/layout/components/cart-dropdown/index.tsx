@@ -20,25 +20,29 @@ const CartDropdown = () => {
 
   return (
     <div
-      style={{ position: "relative", height: "100%", width: "75px" }}
+      style={{ position: "relative", height: "100%", width: "100px" }}
       onMouseEnter={open}
-      onMouseLeave={close}
+      onClick={close}
     >
-      <Popover
-        style={{ right: "0px", top: "13px" }}
-        className={styles.container}
-      >
-        <Popover.Button
-          style={{
-            background: "transparent",
-            color: "black",
-            border: "none",
-            padding: "0.25rem",
-            height: "100%",
-          }}
-        >
-          <Link href="/cart">{`Cart (${totalItems})`}</Link>
-        </Popover.Button>
+      <Popover className={styles.container}>
+        <div style={{ width: "100%", textAlign: "right" }}>
+          <Popover.Button
+            style={{
+              background: "transparent",
+              color: "black",
+              border: "none",
+              padding: "0.25rem",
+              height: "100%",
+            }}
+          >
+            <Link
+              style={{ fontFamily: "raleway", fontWeight: "800" }}
+              href="/cart"
+            >
+              {`Cart (${totalItems})`}
+            </Link>
+          </Popover.Button>
+        </div>
 
         <Transition
           show={state}
@@ -51,59 +55,109 @@ const CartDropdown = () => {
           leaveTo="opacity-0 translate-y-1"
         >
           <Popover.Panel static>
-            <div>
+            {/* <div>
               <h3>Cart</h3>
-            </div>
+            </div> */}
+            <h3 style={{ position: "absolute", top: "5px" }}>
+              {`In your Cart, `}{" "}
+              <p
+                style={{
+                  display: "inline",
+                  fontFamily: "raleway",
+                  fontWeight: "400",
+                }}
+              >
+                {totalItems === 1
+                  ? `${totalItems} item`
+                  : `${totalItems} items`}
+              </p>
+            </h3>
+            <div className="spacer_small"></div>
             {cart && items?.length ? (
-              <>
-                <div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <div style={{ display: "flex", flexDirection: "column" }}>
                   {items
                     .sort((a, b) => {
                       return a.created_at > b.created_at ? -1 : 1
                     })
                     .map((item) => (
-                      <div key={item.id}>
-                        <Link href={`/products/${item.variant.product.handle}`}>
-                          <Thumbnail thumbnail={item.thumbnail} size="square" />
-                        </Link>
-                        <div>
-                          <div>
+                      <>
+                        <div
+                          style={{ display: "flex", flexDirection: "row" }}
+                          key={item.id}
+                        >
+                          <div
+                            style={{ display: "flex", flexDirection: "column" }}
+                          >
+                            <Link
+                              href={`/products/${item.variant.product.handle}`}
+                            >
+                              <Thumbnail
+                                thumbnail={item.thumbnail}
+                                size="small"
+                              />
+                            </Link>
+                          </div>
+
+                          <div
+                            style={{
+                              width: "200px",
+                              display: "flex",
+                              flexDirection: "column",
+                              padding: "0.25rem",
+                            }}
+                          >
                             <div>
                               <div>
-                                <h3>
-                                  <Link
-                                    href={`/products/${item.variant.product.handle}`}
-                                  >
-                                    {item.title}
-                                  </Link>
-                                </h3>
-                                <></>
-                                <LineItemOptions variant={item.variant} />
-                                <span>Quantity: {item.quantity}</span>
-                              </div>
-                              <div>
-                                <LineItemPrice
-                                  region={cart.region}
-                                  item={item}
-                                  style="tight"
-                                />
+                                <div style={{ margin: "0.25rem" }}>
+                                  <div>
+                                    <LineItemPrice
+                                      region={cart.region}
+                                      item={item}
+                                      style="tight"
+                                    />
+                                  </div>
+                                  <div className="spacer_small"></div>
+                                  <h4>
+                                    <Link
+                                      href={`/products/${item.variant.product.handle}`}
+                                    >
+                                      {item.title}
+                                    </Link>
+                                  </h4>
+                                  <div className="spacer_small"></div>
+
+                                  <LineItemOptions variant={item.variant} />
+                                  <div className="spacer_small"></div>
+
+                                  <span>Quantity: {item.quantity}</span>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                          <div>
                             <div>
-                              <button onClick={() => deleteItem(item.id)}>
-                                <Trash size={14} />
-                                <span>Remove</span>
-                              </button>
+                              <div style={{ textAlign: "right" }}>
+                                <button onClick={() => deleteItem(item.id)}>
+                                  <Trash size={20} />
+                                </button>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
+                        <div className="spacer_small"></div>
+                      </>
                     ))}
                 </div>
+                <div className="spacer_small"></div>
+
                 <div>
-                  <div>
+                  <div
+                    style={{ display: "flex", justifyContent: "space-between" }}
+                  >
                     <span>
                       Subtotal <span>(excl. taxes)</span>
                     </span>
@@ -115,11 +169,13 @@ const CartDropdown = () => {
                       })}
                     </span>
                   </div>
+                  <div className="spacer_small"></div>
+
                   <Link href="/cart" passHref>
                     <Button size="large">Go to cart</Button>
                   </Link>
                 </div>
-              </>
+              </div>
             ) : (
               <div>
                 <div>

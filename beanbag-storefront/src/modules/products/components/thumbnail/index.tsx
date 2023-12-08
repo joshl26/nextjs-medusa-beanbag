@@ -24,19 +24,15 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
 
   return (
     <Container
-    // className={clsx(
-    //   "relative w-full overflow-hidden p-4 bg-ui-bg-subtle shadow-elevation-card-rest rounded-large group-hover:shadow-elevation-card-hover transition-shadow ease-in-out duration-150",
-    //   className,
-    //   {
-    //     "aspect-[11/14]": isFeatured,
-    //     "aspect-[9/16]": !isFeatured && size !== "square",
-    //     "aspect-[1/1]": size === "square",
-    //     "w-[180px]": size === "small",
-    //     "w-[290px]": size === "medium",
-    //     "w-[440px]": size === "large",
-    //     "w-full": size === "full",
-    //   }
-    // )}
+      className={clsx(className, {
+        "aspect-[11/14]": isFeatured,
+        "aspect-[9/16]": !isFeatured && size !== "square",
+        "aspect-[1/1]": size === "square",
+        "w-[180px]": size === "small",
+        "w-[290px]": size === "medium",
+        "w-[440px]": size === "large",
+        "w-full": size === "full",
+      })}
     >
       <ImageOrPlaceholder image={initialImage} size={size} />
     </Container>
@@ -54,9 +50,9 @@ const ImageOrPlaceholder = ({
       className="thumbnail_image"
       draggable={false}
       quality={50}
-      width={200}
-      height={200}
-      // sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
+      width={150}
+      height={150}
+      sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
       // fill
     />
   ) : (

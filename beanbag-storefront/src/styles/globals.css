@@ -112,3 +112,7 @@ ul {
   height: 100%;
   align-items: center;
 }
+
+.width_180px {
+  width: 180px;
+}
