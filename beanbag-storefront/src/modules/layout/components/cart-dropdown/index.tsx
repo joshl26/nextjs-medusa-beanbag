@@ -22,7 +22,7 @@ const CartDropdown = () => {
     <div
       style={{ position: "relative", height: "100%", width: "100px" }}
       onMouseEnter={open}
-      onClick={close}
+      onMouseLeave={close}
     >
       <Popover className={styles.container}>
         <div style={{ width: "100%", textAlign: "right" }}>
@@ -55,9 +55,6 @@ const CartDropdown = () => {
           leaveTo="opacity-0 translate-y-1"
         >
           <Popover.Panel static>
-            {/* <div>
-              <h3>Cart</h3>
-            </div> */}
             <h3 style={{ position: "absolute", top: "5px" }}>
               {`In your Cart, `}{" "}
               <p
@@ -103,7 +100,6 @@ const CartDropdown = () => {
                               />
                             </Link>
                           </div>
-
                           <div
                             style={{
                               width: "200px",
@@ -113,30 +109,24 @@ const CartDropdown = () => {
                             }}
                           >
                             <div>
-                              <div>
-                                <div style={{ margin: "0.25rem" }}>
-                                  <div>
-                                    <LineItemPrice
-                                      region={cart.region}
-                                      item={item}
-                                      style="tight"
-                                    />
-                                  </div>
-                                  <div className="spacer_small"></div>
-                                  <h4>
-                                    <Link
-                                      href={`/products/${item.variant.product.handle}`}
-                                    >
-                                      {item.title}
-                                    </Link>
-                                  </h4>
-                                  <div className="spacer_small"></div>
-
-                                  <LineItemOptions variant={item.variant} />
-                                  <div className="spacer_small"></div>
-
-                                  <span>Quantity: {item.quantity}</span>
-                                </div>
+                              <div style={{ margin: "0.25rem" }}>
+                                <LineItemPrice
+                                  region={cart.region}
+                                  item={item}
+                                  style="tight"
+                                />
+                                <div className="spacer_small" />
+                                <h4>
+                                  <Link
+                                    href={`/products/${item.variant.product.handle}`}
+                                  >
+                                    {item.title}
+                                  </Link>
+                                </h4>
+                                <div className="spacer_small" />
+                                <LineItemOptions variant={item.variant} />
+                                <div className="spacer_small" />
+                                <span>Quantity: {item.quantity}</span>
                               </div>
                             </div>
                             <div>
@@ -148,12 +138,11 @@ const CartDropdown = () => {
                             </div>
                           </div>
                         </div>
-                        <div className="spacer_small"></div>
+                        <div className="spacer_small" />
                       </>
                     ))}
                 </div>
-                <div className="spacer_small"></div>
-
+                <div className="spacer_small" />
                 <div>
                   <div
                     style={{ display: "flex", justifyContent: "space-between" }}
@@ -169,8 +158,7 @@ const CartDropdown = () => {
                       })}
                     </span>
                   </div>
-                  <div className="spacer_small"></div>
-
+                  <div className="spacer_small" />
                   <Link href="/cart" passHref>
                     <Button size="large">Go to cart</Button>
                   </Link>
@@ -185,10 +173,8 @@ const CartDropdown = () => {
                   <span>Your shopping bag is empty.</span>
                   <div>
                     <Link href="/store">
-                      <>
-                        <span>Go to all products page</span>
-                        <Button onClick={close}>Explore products</Button>
-                      </>
+                      <span>Go to all products page</span>
+                      <Button onClick={close}>Explore products</Button>
                     </Link>
                   </div>
                 </div>

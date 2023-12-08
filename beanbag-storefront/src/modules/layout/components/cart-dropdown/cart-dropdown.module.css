@@ -10,19 +10,18 @@
 }
 
 .container::after {
-  
 }
 
 @media only screen and (max-width: 780px) {
   .container {
-    right: 0;
+    right: -100px;
     top: 13px;
   }
 }
 
 @media only screen and (min-width: 781px) {
   .container {
-    right: 10px;
+    right: 0px;
     top: 13px;
   }
 }
