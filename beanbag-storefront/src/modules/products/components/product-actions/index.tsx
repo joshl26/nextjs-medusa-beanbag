@@ -4,7 +4,7 @@ import {
 } from "@lib/context/product-context"
 import useProductPrice from "@lib/hooks/use-product-price"
 import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
-import { Button } from "@medusajs/ui"
+import Button from "@modules/common/components/button"
 import Divider from "@modules/common/components/divider"
 import RoundButton from "@modules/common/components/round-button"
 import OptionSelect from "@modules/products/components/option-select"
@@ -48,7 +48,7 @@ const ProductActionsInner: React.FC<ProductActionsProps> = ({ product }) => {
                 </div>
               )
             })}
-            <Divider />
+            <div className="divider"></div>
           </div>
         ) : (
           <div>
@@ -96,14 +96,14 @@ const ProductActionsInner: React.FC<ProductActionsProps> = ({ product }) => {
         style={{
           position: "fixed",
           right: "50px",
-          top: "70vh",
+          top: "85vh",
           height: "50px",
         }}
       >
         <Button
+          className={styles.button_style}
           onClick={addToCart}
           disabled={!inStock || !variant}
-          variant="danger"
         >
           {/* <RoundButton
             className={styles.button}
@@ -113,7 +113,7 @@ const ProductActionsInner: React.FC<ProductActionsProps> = ({ product }) => {
           {!inStock
             ? "Out of stock"
             : !variant
-            ? "Select variant"
+            ? "Select option"
             : "Add to Order"}
         </Button>
       </div>

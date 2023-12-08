@@ -22,22 +22,14 @@ const DrinkSizeOptionSelect: React.FC<OptionSelectProps> = ({
   return (
     <div>
       <span className={styles.title}>{title} Options</span>
-      <div className="spacer_small"></div>
+      <div className="spacer_med"></div>
       <div className={styles.row}>
         {filteredOptions.map((v) => {
           return (
             <div className={styles.column} key={v}>
               <button
                 onClick={() => updateOption({ [option.id]: v })}
-
-                // className={clsx(
-                //   "border-ui-border-base bg-ui-bg-subtle border text-small-regular h-10 rounded-rounded p-2 flex-1 ",
-                //   {
-                //     "border-ui-border-interactive": v === current,
-                //     "hover:shadow-elevation-card-rest transition-shadow ease-in-out duration-150":
-                //       v !== current,
-                //   }
-                // )}
+                className="button-style"
               >
                 {v}
               </button>
@@ -45,7 +37,7 @@ const DrinkSizeOptionSelect: React.FC<OptionSelectProps> = ({
           )
         })}
       </div>
-      <div className="spacer_small"></div>
+      <div className="spacer_med"></div>
     </div>
   )
 }

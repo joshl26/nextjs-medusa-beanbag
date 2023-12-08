@@ -194,7 +194,7 @@ const CartDropdown = () => {
                   </div>
                   <div className="spacer_small" />
                   <Link href="/cart" passHref>
-                    <Button className="button-style">Go to cart</Button>
+                    <Button className={styles.button_style}>Go to cart</Button>
                   </Link>
                 </div>
               </div>
