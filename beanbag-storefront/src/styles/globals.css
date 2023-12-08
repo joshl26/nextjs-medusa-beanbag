@@ -116,3 +116,26 @@ ul {
 .width_180px {
   width: 180px;
 }
+
+.button-style {
+  margin: 0 auto;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+  height: 30px;
+  border-radius: 15px;
+  width: 150px;
+  background-color: white;
+  color: black;
+}
+
+.button-style:hover {
+  margin: 0 auto;
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
+  height: 30px;
+  border-radius: 15px;
+  width: 150px;
+  background-color: black;
+  color: white;
+  border: white 2px solid;
+}

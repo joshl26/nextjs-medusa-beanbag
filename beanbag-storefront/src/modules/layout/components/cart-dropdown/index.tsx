@@ -2,9 +2,10 @@ import { Popover, Transition } from "@headlessui/react"
 import { useCartDropdown } from "@lib/context/cart-dropdown-context"
 import { useStore } from "@lib/context/store-context"
 import useEnrichedLineItems from "@lib/hooks/use-enrich-line-items"
-import { Button } from "@medusajs/ui"
+import Button from "@modules/common/components/button"
 import LineItemOptions from "@modules/common/components/line-item-options"
 import LineItemPrice from "@modules/common/components/line-item-price"
+import Cart from "@modules/common/icons/cart"
 import Trash from "@modules/common/icons/trash"
 import Thumbnail from "@modules/products/components/thumbnail"
 import { formatAmount, useCart } from "medusa-react"
@@ -20,7 +21,7 @@ const CartDropdown = () => {
 
   return (
     <div
-      style={{ position: "relative", height: "100%", width: "100px" }}
+      style={{ position: "relative", height: "100%", width: "75px" }}
       onMouseEnter={open}
       onMouseLeave={close}
     >
@@ -36,14 +37,26 @@ const CartDropdown = () => {
             }}
           >
             <Link
-              style={{ fontFamily: "raleway", fontWeight: "800" }}
+              style={{
+                fontFamily: "raleway",
+                fontWeight: "800",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
               href="/cart"
             >
-              {`Cart (${totalItems})`}
+              {!state ? (
+                <>
+                  <Cart size={17} style={{ zIndex: "-1" }} />
+                  <p>{totalItems > 0 ? `(${totalItems})` : ""}</p>
+                </>
+              ) : (
+                ""
+              )}
             </Link>
           </Popover.Button>
         </div>
-
         <Transition
           show={state}
           as={Fragment}
@@ -54,9 +67,9 @@ const CartDropdown = () => {
           leaveFrom="opacity-100 translate-y-0"
           leaveTo="opacity-0 translate-y-1"
         >
-          <Popover.Panel static>
-            <h3 style={{ position: "absolute", top: "5px" }}>
-              {`In your Cart, `}{" "}
+          <Popover.Panel style={{ minWidth: "250px" }} static>
+            <h4 style={{ zIndex: "1000", position: "absolute", top: "5px" }}>
+              {`My Cart `}{" "}
               <p
                 style={{
                   display: "inline",
@@ -65,11 +78,10 @@ const CartDropdown = () => {
                 }}
               >
                 {totalItems === 1
-                  ? `${totalItems} item`
-                  : `${totalItems} items`}
+                  ? `| ${totalItems} item`
+                  : `| ${totalItems} items`}
               </p>
-            </h3>
-            <div className="spacer_small"></div>
+            </h4>
             {cart && items?.length ? (
               <div
                 style={{
@@ -91,6 +103,8 @@ const CartDropdown = () => {
                           <div
                             style={{ display: "flex", flexDirection: "column" }}
                           >
+                            <div className="spacer_small"></div>
+
                             <Link
                               href={`/products/${item.variant.product.handle}`}
                             >
@@ -102,14 +116,15 @@ const CartDropdown = () => {
                           </div>
                           <div
                             style={{
-                              width: "200px",
+                              width: "175px",
                               display: "flex",
                               flexDirection: "column",
-                              padding: "0.25rem",
                             }}
                           >
+                            <div className="spacer_small"></div>
+
                             <div>
-                              <div style={{ margin: "0.25rem" }}>
+                              <div style={{ paddingLeft: "0.5rem" }}>
                                 <LineItemPrice
                                   region={cart.region}
                                   item={item}
@@ -123,12 +138,24 @@ const CartDropdown = () => {
                                     {item.title}
                                   </Link>
                                 </h4>
-                                <div className="spacer_small" />
-                                <LineItemOptions variant={item.variant} />
-                                <div className="spacer_small" />
-                                <span>Quantity: {item.quantity}</span>
+                                <div className="spacer_small"></div>
+                                <div
+                                  style={{
+                                    flexDirection: "row-reverse",
+                                    textAlign: "left",
+                                    display: "flex",
+                                    justifyContent: "space-between",
+                                  }}
+                                >
+                                  <div className="spacer_small" />{" "}
+                                  <LineItemOptions variant={item.variant} />
+                                  <div className="spacer_small" />
+                                  <span>Quantity: {item.quantity}</span>
+                                </div>
                               </div>
                             </div>
+                            <div className="spacer_small"></div>
+                            <div className="spacer_small"></div>
                             <div>
                               <div style={{ textAlign: "right" }}>
                                 <button onClick={() => deleteItem(item.id)}>
@@ -137,18 +164,20 @@ const CartDropdown = () => {
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div className="spacer_small" />
+                        </div>{" "}
+                        <div className="spacer_small"></div>
+                        <div className="spacer_small"></div>
+                        <div className="spacer_small divider" />
                       </>
                     ))}
                 </div>
-                <div className="spacer_small" />
+                <div className="spacer_small " />
                 <div>
                   <div
                     style={{ display: "flex", justifyContent: "space-between" }}
                   >
                     <span>
-                      Subtotal <span>(excl. taxes)</span>
+                      Subtotal <span>(excl. taxes) - </span>
                     </span>
                     <span>
                       {formatAmount({
@@ -160,21 +189,18 @@ const CartDropdown = () => {
                   </div>
                   <div className="spacer_small" />
                   <Link href="/cart" passHref>
-                    <Button size="large">Go to cart</Button>
+                    <Button className="button-style">Go to cart</Button>
                   </Link>
                 </div>
               </div>
             ) : (
               <div>
                 <div>
-                  <div>
-                    <span>0</span>
-                  </div>
                   <span>Your shopping bag is empty.</span>
                   <div>
-                    <Link href="/store">
-                      <span>Go to all products page</span>
-                      <Button onClick={close}>Explore products</Button>
+                    <Link href="/menu">
+                      <span>Go to main products page</span>
+                      <button onClick={close}>Explore products</button>
                     </Link>
                   </div>
                 </div>
