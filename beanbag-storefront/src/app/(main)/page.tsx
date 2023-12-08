@@ -15,10 +15,11 @@ import { CardData } from "../data/cardData"
 // }
 
 export default async function Home() {
-  const { collections, count } = await getCollectionsList(0, 3)
+  // const { collections, count } = await getCollectionsList(0, 3)
 
   return (
-    <Suspense fallback={<SkeletonHomepageProducts count={count} />}>
+    // <SkeletonHomepageProducts count={CardData.length} />
+    <Suspense fallback={<SkeletonHomepageProducts count={CardData.length} />}>
       <section className={styles.section_landing_card}>
         <div className={styles.spacer_small} />
         {CardData.map((card: CardDataType) => (

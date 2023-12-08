@@ -5,9 +5,7 @@ const SkeletonHomepageProducts: React.FC<{
 }> = ({ count = 3 }) => {
   return (
     <div>
-      {Array.from({ length: count }).map((_, i) => (
-        <SkeletonProductPreview key={i} />
-      ))}
+      <SkeletonProductPreview />
     </div>
   )
 }
