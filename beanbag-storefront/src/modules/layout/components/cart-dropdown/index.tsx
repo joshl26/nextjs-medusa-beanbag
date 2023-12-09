@@ -20,8 +20,6 @@ const CartDropdown = () => {
   const { deleteItem } = useStore()
   const { state, open, close } = useCartDropdown()
 
-  console.log(state)
-
   return (
     <div
       style={{ position: "relative", height: "100%", width: "50px" }}

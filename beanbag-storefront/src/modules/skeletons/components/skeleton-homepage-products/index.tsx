@@ -7,7 +7,7 @@ const SkeletonHomepageProducts: React.FC<{
     <div>
       <SkeletonProductPreview />
     </div>
-  )
+  ) 
 }
 
 export default SkeletonHomepageProducts

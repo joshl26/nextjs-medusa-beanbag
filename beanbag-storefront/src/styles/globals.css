@@ -42,6 +42,14 @@ a {
   text-decoration: none;
 }
 
+.p,
+h1,
+h2,
+h3,
+h4 {
+  font-family: raleway;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

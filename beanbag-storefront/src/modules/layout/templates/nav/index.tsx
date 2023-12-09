@@ -64,7 +64,7 @@ const Nav = () => {
           </div>
           <div className={styles.button_container}>
             <RoundButton
-              href="/signin"
+              href="/account/login"
               className={styles.button_signin}
               buttonText="Sign In"
             />
