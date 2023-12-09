@@ -4,3 +4,24 @@
   border: var(--border-color);
   z-index: 1000;
 }
+
+.button_style {
+  height: 30px;
+  background: rgb(var(--landing-background-rgb));
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  color: black;
+  border: var(--border-color);
+  border-radius: 15px;
+}
+
+.button_style:hover {
+  height: 30px;
+  background: black;
+  color: rgb(var(--landing-background-rgb));
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+
+  border: var(--border-color);
+  border-radius: 15px;
+}

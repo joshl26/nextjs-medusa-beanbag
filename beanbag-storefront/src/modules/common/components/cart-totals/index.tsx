@@ -3,6 +3,7 @@ import { Tooltip } from "@medusajs/ui"
 import { InformationCircleSolid } from "@medusajs/icons"
 import { formatAmount } from "medusa-react"
 import React from "react"
+import styles from "./cart-totals.module.css"
 
 type CartTotalsProps = {
   data: Omit<Cart, "refundable_amount" | "refunded_total"> | Order
@@ -27,42 +28,66 @@ const CartTotals: React.FC<CartTotalsProps> = ({ data }) => {
   }
 
   return (
-    <div>
-      <div>
-        <div>
-          <span>
+    <div className={styles.container}>
+      <>
+        <div className={styles.flex_row}>
+          <span className={styles.subtotal}>
             Subtotal
-            <Tooltip content="Cart total excluding shipping and taxes.">
-              <InformationCircleSolid color="var(--fg-muted)" />
+            <Tooltip
+              className={styles.tooltip}
+              content="Cart total excluding shipping and taxes."
+            >
+              <InformationCircleSolid color="black" />
             </Tooltip>
           </span>
-          <span>{getAmount(subtotal)}</span>
+          <span className={styles.subtotal_total}>{getAmount(subtotal)}</span>
         </div>
+        <div className="spacer_small"></div>
         {!!discount_total && (
-          <div>
-            <span>Discount</span>
-            <span>- {getAmount(discount_total)}</span>
-          </div>
+          <>
+            <div className={styles.flex_row}>
+              <span className={styles.discount}>Discount</span>
+              <span className={styles.discount_total}>
+                - {getAmount(discount_total)}
+              </span>
+            </div>
+            <div className="spacer_small"></div>
+          </>
         )}
+
         {!!gift_card_total && (
-          <div>
-            <span>Gift card</span>
-            <span>- {getAmount(gift_card_total)}</span>
-          </div>
+          <>
+            <div className={styles.flex_row}>
+              <span className={styles.giftcard}>Gift card</span>
+              <span className={styles.giftcard_total}>
+                - {getAmount(gift_card_total)}
+              </span>
+            </div>
+            <div className="spacer_small"></div>
+          </>
         )}
-        <div>
-          <span>Shipping</span>
-          <span>{getAmount(shipping_total)}</span>
-        </div>
-        <div>
-          <span>Taxes</span>
-          <span>{getAmount(tax_total)}</span>
-        </div>
-      </div>
+        <>
+          <div className={styles.flex_row}>
+            <span className={styles.shipping}>Shipping</span>
+            <span className={styles.shipping_total}>
+              {getAmount(shipping_total)}
+            </span>
+          </div>
+          <div className="spacer_small"></div>
+        </>
+
+        <>
+          <div className={styles.flex_row}>
+            <span className={styles.tax}>Taxes</span>
+            <span className={styles.tax_total}>{getAmount(tax_total)}</span>
+          </div>{" "}
+          <div className="spacer_small"></div>
+        </>
+      </>
       <div />
-      <div>
-        <span>Total</span>
-        <span>{getAmount(total)}</span>
+      <div className={styles.flex_row}>
+        <span className={styles.total}>Total</span>
+        <span className={styles.total_total}>{getAmount(total)}</span>
       </div>
       <div />
     </div>

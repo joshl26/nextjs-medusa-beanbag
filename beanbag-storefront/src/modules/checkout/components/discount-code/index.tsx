@@ -181,7 +181,6 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
               <Input
                 className="input"
                 // label="Please enter code"
-
                 label=""
                 {...register("discount_code", {
                   required: "Code is required",
@@ -189,7 +188,12 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                 errors={errors}
               />
               <div className="spacer_small"></div>
-              <Button type="submit" variant="secondary" isLoading={isLoading}>
+              <Button
+                className={styles.button_style}
+                type="submit"
+                variant="secondary"
+                isLoading={isLoading}
+              >
                 Apply
               </Button>
             </div>
