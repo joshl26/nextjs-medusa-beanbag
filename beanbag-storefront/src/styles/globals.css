@@ -149,10 +149,36 @@ ul {
   border: white 2px solid;
 }
 
-.input {
+.input,
+.select {
   background: white;
   color: black;
   padding: 0.125rem;
   border: var(--border-color);
   border-radius: 0.25rem;
+}
+
+table {
+  width: 600px;
+}
+
+thead th,
+tfoot th {
+  font-family: raleway;
+}
+
+th {
+  letter-spacing: 2px;
+}
+
+td {
+  letter-spacing: 1px;
+}
+
+tbody td {
+  text-align: center;
+}
+
+tfoot th {
+  text-align: right;
 }

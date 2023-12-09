@@ -40,9 +40,10 @@ const LineItemPrice = ({
           </>
         )}
         <span
-        // className={clsx("text-base-regular", {
-        //   "text-ui-fg-interactive": hasReducedPrice,
-        // })}
+          // className={clsx("text-base-regular", {
+          //   "text-ui-fg-interactive": hasReducedPrice,
+          // })}
+          style={{ fontWeight: "700" }}
         >
           {formatAmount({
             amount: item.total || 0,

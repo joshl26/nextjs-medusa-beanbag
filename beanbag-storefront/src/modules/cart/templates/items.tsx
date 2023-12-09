@@ -11,20 +11,18 @@ type ItemsTemplateProps = {
 const ItemsTemplate = ({ items, region }: ItemsTemplateProps) => {
   return (
     <div>
-      <div>
-        <Heading>Cart</Heading>
-      </div>
-      <Table>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>Item</Table.HeaderCell>
-            <Table.HeaderCell></Table.HeaderCell>
-            <Table.HeaderCell>Quantity</Table.HeaderCell>
-            <Table.HeaderCell>Price</Table.HeaderCell>
-            <Table.HeaderCell>Total</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>
+      <table>
+        <thead style={{ borderBottom: "black 2px solid" }}>
+          <tr style={{ textAlign: "left" }}>
+            <th style={{ width: "20%" }}>Item</th>
+            <th style={{ width: "30%" }}></th>
+            <th style={{ width: "20%" }}>Quantity</th>
+            <th style={{ width: "15%" }}>Price</th>
+            <th style={{ width: "15%" }}>Total</th>
+          </tr>
+          <div className="spacer_small"></div>
+        </thead>
+        <tbody>
           {items && region
             ? items
                 .sort((a, b) => {
@@ -36,8 +34,8 @@ const ItemsTemplate = ({ items, region }: ItemsTemplateProps) => {
             : Array.from(Array(5).keys()).map((i) => {
                 return <SkeletonLineItem key={i} />
               })}
-        </Table.Body>
-      </Table>
+        </tbody>
+      </table>
     </div>
   )
 }

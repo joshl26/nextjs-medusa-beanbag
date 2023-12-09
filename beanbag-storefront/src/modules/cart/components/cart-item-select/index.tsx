@@ -63,15 +63,20 @@ const CartItemSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
           //   }
           // )}
         >
-          <select ref={innerRef} {...props}>
+          <select
+            className="select"
+            style={{ width: "45px", height: "25px" }}
+            ref={innerRef}
+            {...props}
+          >
             <option disabled value="">
               {placeholder}
             </option>
             {children}
           </select>
-          <span>
+          {/* <span>
             <ChevronDown />
-          </span>
+          </span> */}
         </IconBadge>
         {hasError && props.name && (
           <ErrorMessage
