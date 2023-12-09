@@ -1,0 +1,6 @@
+.tooltip {
+  background: rgb(var(--landing-background-rgb));
+  padding: 1rem;
+  border: var(--border-color);
+  z-index: 1000;
+}

@@ -148,3 +148,11 @@ ul {
   color: white;
   border: white 2px solid;
 }
+
+.input {
+  background: white;
+  color: black;
+  padding: 0.125rem;
+  border: var(--border-color);
+  border-radius: 0.25rem;
+}

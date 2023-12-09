@@ -11,11 +11,15 @@ type SummaryProps = {
 
 const Summary = ({ cart }: SummaryProps) => {
   return (
-    <div>
-      <Heading level="h2">Summary</Heading>
+    <div style={{ padding: "1rem" }}>
+      <h2>Summary</h2>
+      <div className="spacer_small"></div>
       <DiscountCode cart={cart} />
-      <Divider />
+      <div className="spacer_small"></div>
+      <div className="spacer_small"></div>
+      <div className="divider"></div>
       <CartTotals data={cart} />
+      <div className="spacer_small"></div>
       <Link href="/checkout">
         <Button>Go to checkout</Button>
       </Link>

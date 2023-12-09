@@ -8,6 +8,7 @@ import Trash from "@modules/common/icons/trash"
 import { formatAmount, useCart, useUpdateCart } from "medusa-react"
 import { useForm } from "react-hook-form"
 import { useMutation } from "@tanstack/react-query"
+import styles from "./discount-code.module.css"
 
 type DiscountFormValues = {
   discount_code: string
@@ -126,16 +127,14 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
       <div>
         {gift_cards.length > 0 && (
           <div>
-            <Heading>Gift card(s) applied:</Heading>
+            <h2>Gift card(s) applied:</h2>
             {gift_cards?.map((gc) => (
               <div key={gc.id}>
-                <Text>
+                <p>
                   <span>Code: </span>
                   <span>{gc.code}</span>
-                </Text>
-                <Text>
-                  {formatAmount({ region: region, amount: gc.balance })}
-                </Text>
+                </p>
+                <p>{formatAmount({ region: region, amount: gc.balance })}</p>
                 <button
                   onClick={() => removeGiftCard(gc.code)}
                   disabled={isLoading}
@@ -151,13 +150,13 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
         {appliedDiscount ? (
           <div>
             <div>
-              <Heading>Discount applied:</Heading>
+              <h2>Discount applied:</h2>
               <div>
-                <Text>
+                <p>
                   <span>Code:</span>
                   <span>{discounts[0].code}</span>
                   <span>({appliedDiscount})</span>
-                </Text>
+                </p>
                 <button onClick={onRemove} disabled={isLoading}>
                   <Trash size={14} />
                   <span>Remove discount code from order</span>
@@ -167,21 +166,29 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
           </div>
         ) : (
           <form onSubmit={handleSubmit(onApply)}>
-            <Label>
+            <Label style={{ display: "flex" }}>
               Gift card or discount code?
-              <Tooltip content="You can add multiple gift cards, but only one discount code.">
-                <InformationCircleSolid color="var(--fg-muted)" />
+              <div className="spacer_small"></div>
+              <Tooltip
+                className={styles.tooltip}
+                content="You can add multiple gift cards, but only one discount code."
+              >
+                <InformationCircleSolid color="black" />
               </Tooltip>
             </Label>
+            <div className="spacer_small"></div>
             <div>
               <Input
-                label="Please enter code"
+                className="input"
+                // label="Please enter code"
+
+                label=""
                 {...register("discount_code", {
                   required: "Code is required",
                 })}
                 errors={errors}
               />
-
+              <div className="spacer_small"></div>
               <Button type="submit" variant="secondary" isLoading={isLoading}>
                 Apply
               </Button>
