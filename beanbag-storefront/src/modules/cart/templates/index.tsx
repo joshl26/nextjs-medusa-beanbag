@@ -22,13 +22,22 @@ const CartTemplate = () => {
     <div>
       <div>
         {cart.items.length ? (
-          <div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              padding: "0.5rem",
+            }}
+          >
             <div>
               {!customer && (
-                <>
+                <div style={{ padding: "0.25rem" }}>
                   <SignInPrompt />
-                  <Divider />
-                </>
+                  <div className="spacer_small"></div>
+                  <div className="spacer_small"></div>
+                  <div className="divider"></div>
+                </div>
               )}
 
               <ItemsTemplate region={cart?.region} items={items} />

@@ -1,22 +1,22 @@
-import { Button, Heading, Text } from "@medusajs/ui"
 import Link from "next/link"
 
 const SignInPrompt = () => {
   return (
-    <div >
-      <div>
-        <Heading level="h2" >
-          Already have an account?
-        </Heading>
-        <Text >
-          Sign in for a better experience.
-        </Text>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}
+    >
+      <div style={{ width: "80%" }}>
+        <h2>Already have an account?</h2>
+        <p>Sign in for a better experience.</p>
       </div>
-      <div>
+      <div style={{ width: "20%" }}>
         <Link href="/account/login">
-          <Button variant="secondary" >
-            Sign in
-          </Button>
+          <button>Sign in</button>
         </Link>
       </div>
     </div>

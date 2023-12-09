@@ -7,22 +7,22 @@ type ImageGalleryProps = {
 }
 
 const ImageGallery = ({ images }: ImageGalleryProps) => {
+  console.log()
+
   return (
     <>
       {images.map((image, index) => {
         return (
           <Container key={image.id} id={image.id}>
+            <h1>{image.url}</h1>
             <Image
               src={image.url}
               priority={index <= 2 ? true : false}
               alt={`Product image ${index + 1}`}
-              width={500}
-              height={500}
-              // fill
+              width={2400}
+              height={1598}
+              layout="responsive"
               sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
-              style={{
-                objectFit: "cover",
-              }}
             />
           </Container>
         )
