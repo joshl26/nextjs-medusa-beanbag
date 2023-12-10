@@ -7,14 +7,11 @@ type ImageGalleryProps = {
 }
 
 const ImageGallery = ({ images }: ImageGalleryProps) => {
-  console.log()
-
   return (
     <>
       {images.map((image, index) => {
         return (
           <Container key={image.id} id={image.id}>
-            <h1>{image.url}</h1>
             <Image
               src={image.url}
               priority={index <= 2 ? true : false}

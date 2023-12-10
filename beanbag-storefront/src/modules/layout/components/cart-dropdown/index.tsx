@@ -85,6 +85,7 @@ const CartDropdown = () => {
                 </p>
               </h4>
             </Link>
+            <div className="spacer_small"></div>
             {cart && items?.length ? (
               <div
                 style={{
@@ -179,10 +180,22 @@ const CartDropdown = () => {
                   <div
                     style={{ display: "flex", justifyContent: "space-between" }}
                   >
-                    <span>
+                    <span
+                      style={{
+                        fontFamily: "raleway",
+                        fontWeight: "600",
+                        fontSize: "1.25rem",
+                      }}
+                    >
                       Subtotal <span>(excl. taxes) - </span>
                     </span>
-                    <span>
+                    <span
+                      style={{
+                        fontFamily: "raleway",
+                        fontWeight: "800",
+                        fontSize: "1.25rem",
+                      }}
+                    >
                       {formatAmount({
                         amount: cart.subtotal || 0,
                         region: cart.region,
@@ -191,6 +204,8 @@ const CartDropdown = () => {
                     </span>
                   </div>
                   <div className="spacer_small" />
+                  <div className="spacer_small"></div>
+
                   <Link href="/cart" passHref>
                     <Button className={styles.button_style}>Go to cart</Button>
                   </Link>
@@ -209,6 +224,7 @@ const CartDropdown = () => {
                 </div>
               </div>
             )}
+            <div className="spacer_small"></div>
           </Popover.Panel>
         </Transition>
       </Popover>

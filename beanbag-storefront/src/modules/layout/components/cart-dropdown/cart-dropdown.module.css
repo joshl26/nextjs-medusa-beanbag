@@ -43,21 +43,23 @@
   margin: 0 auto;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  height: 30px;
-  border-radius: 15px;
-  width: 150px;
+  height: 40px;
+  border-radius: 20px;
+  width: 100%;
   background-color: white;
   color: black;
+  font-size: 1rem;
 }
 
 .button_style:hover {
   margin: 0 auto;
   padding-left: 0.125rem;
   padding-right: 0.125rem;
-  height: 30px;
-  border-radius: 15px;
-  width: 150px;
+  height: 40px;
+  border-radius: 20px;
+  width: 100%;
   background-color: black;
   color: white;
   border: white 2px solid;
+  font-size: 1rem;
 }
