@@ -1,5 +1,5 @@
-import SkeletonCollectionPage from "@modules/skeletons/templates/skeleton-collection-page"
+import SkeletonCategoryPage from "@modules/skeletons/templates/skeleton-category-page"
 
 export default function Loading() {
-  return <SkeletonCollectionPage />
+  return <SkeletonCategoryPage />
 }

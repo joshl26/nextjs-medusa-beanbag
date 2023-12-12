@@ -1,8 +1,11 @@
 import React from "react"
-import styles from "./skeleton-menu-page.module.css"
+import styles from "./skeleton-category-page.module.css"
 import repeat from "@lib/util/repeat"
 
-const SkeletonMenuPage = ({ numberMenuDrinks = 6, numberMenuAtHome = 2 }) => {
+const SkeletonCategoryPage = ({
+  numberMenuDrinks = 6,
+  numberMenuAtHome = 2,
+}) => {
   return (
     <div className="loading">
       <section className={styles.menu_section}>
@@ -70,4 +73,4 @@ const SkeletonMenuPage = ({ numberMenuDrinks = 6, numberMenuAtHome = 2 }) => {
   )
 }
 
-export default SkeletonMenuPage
+export default SkeletonCategoryPage

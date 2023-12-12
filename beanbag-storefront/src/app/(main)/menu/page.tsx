@@ -19,13 +19,13 @@ export default async function Menu() {
   // console.log(products)
 
   return (
-    <Loading />
+    // <Loading />
 
-    // <Suspense fallback={<Loading />}>
-    //   <main className="main">
-    //     {/* <FeaturedProducts collections={collections} /> */}
-    //     <MenuItems product_categories={product_categories} />
-    //   </main>
-    // </Suspense>
+    <Suspense fallback={<Loading />}>
+      <main className="main">
+        {/* <FeaturedProducts collections={collections} /> */}
+        <MenuItems product_categories={product_categories} />
+      </main>
+    </Suspense>
   )
 }

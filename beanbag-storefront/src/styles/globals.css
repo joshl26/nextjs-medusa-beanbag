@@ -7,8 +7,9 @@
   --landing-card-one-rgb: 3, 87, 57;
   --landing-card-two-rgb: 187, 121, 61;
   --landing-card-three-rgb: 200, 45, 45;
-  --landing-background-rgb: 255, 255, 255;
+  --landing-background-rgb: 246, 246, 246;
   --border-color: rgb(200, 200, 200) 2px solid;
+  --loading-grey: 225, 225, 225;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -172,4 +173,56 @@ tbody td {
 
 tfoot th {
   text-align: right;
+}
+
+.loading h2,
+.loading h1,
+.loading .menu-image {
+  background-color: rgb(var(--loading-grey));
+  background: linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 60%
+    )
+    rgb(var(--loading-grey));
+  background-size: 200% 100%;
+  background-position-x: 180%;
+  animation: 1s loading ease-in-out infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position-x: -20%;
+  }
+}
+
+.loading h2 {
+  height: 1.6rem;
+  border-radius: var(--border-radius);
+  animation-delay: 0.05s;
+  margin: 10px 10px;
+  width: 75%;
+}
+
+.loading h1 {
+  height: 1.6rem;
+  border-radius: var(--border-radius);
+  animation-delay: 0.05s;
+  margin: 10px 10px;
+  width: 75%;
+}
+
+.loading .menu-image {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  animation-delay: 0.05s;
+}
+
+.menu-product {
+  display: flex;
+  flex-direction: row;
+  width: 250px;
+  align-items: center;
 }

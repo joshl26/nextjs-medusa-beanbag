@@ -6,6 +6,8 @@ import {
 import CategoryTemplate from "@modules/categories/templates"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
+import { Suspense } from "react"
+import Loading from "./loading"
 
 type Props = {
   params: { category: string[] }
@@ -44,9 +46,11 @@ export default async function CategoryPage({ params }: Props) {
   })
 
   return (
-    <CategoryTemplate
-      all_categories={all_categories}
-      categories={product_categories}
-    />
+    <Suspense fallback={<Loading />}>
+      <CategoryTemplate
+        all_categories={all_categories}
+        categories={product_categories}
+      />
+    </Suspense>
   )
 }
