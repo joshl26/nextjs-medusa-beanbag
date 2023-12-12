@@ -6,7 +6,10 @@ function withStoreConfig(nextConfig = {}) {
 
   Object.entries(features).forEach(([key, value]) => {
     if (value) {
-      nextConfig.env[`FEATURE_${key.toUpperCase()}_ENABLED`] = true
+      nextConfig.env[`FEATURE_${key.toUpperCase()}_ENABLED`] = value
+      //  BELOW IS ORIGINAL SETTING THAT WAS FORCING BOOLEAN VALUE true INSTEAD OF USING PROPERTY VALUE
+      // nextConfig.env[`FEATURE_${key.toUpperCase()}_ENABLED`] = "true"
+
     }
   })
 
