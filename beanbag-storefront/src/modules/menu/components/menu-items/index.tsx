@@ -1,5 +1,3 @@
-"use client"
-
 import { ProductCategoryWithChildren } from "@lib/data"
 import { ProductCollection, ProductCategory } from "@medusajs/medusa"
 import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"

@@ -7,6 +7,7 @@ import styles from "./page.module.css"
 import LandingCard from "@modules/home/components/featured-products"
 import { CardDataType } from "../../types/types"
 import { CardData } from "../data/cardData"
+import Loading from "./loading"
 
 // export const metadata: Metadata = {
 //   title: "Medusa Next.js Starter Template",
@@ -19,7 +20,7 @@ export default async function Home() {
 
   return (
     // <SkeletonHomepageProducts count={CardData.length} />
-    <Suspense fallback={<SkeletonHomepageProducts count={CardData.length} />}>
+    <Suspense fallback={<Loading />}>
       <section className={styles.section_landing_card}>
         <div className={styles.spacer_small} />
         {CardData.map((card: CardDataType) => (
