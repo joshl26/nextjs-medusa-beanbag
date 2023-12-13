@@ -42,6 +42,18 @@ const plugins = [
       upload_dir: "uploads",
     },
   },
+
+  // A custom medusajs cloudinary plugin that allows you to use custom folder in cloudinary to organize your store images
+  {
+    resolve: `medusa-file-cloudinary-custom`,
+    options: {
+      cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+      api_key: process.env.CLOUDINARY_API_KEY,
+      api_secret: process.env.CLOUDINARY_API_SECRET,
+      secure: true,
+      root_folder: process.env.CLOUDINARY_ROOT_FOLDER,
+    },
+  },
   {
     resolve: "@medusajs/admin",
     /** @type {import('@medusajs/admin').PluginOptions} */
