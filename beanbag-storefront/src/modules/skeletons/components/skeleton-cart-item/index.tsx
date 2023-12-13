@@ -1,34 +1,34 @@
-import { Table } from "@medusajs/ui"
-
 const SkeletonCartItem = () => {
   return (
-    <Table.Row>
-      <Table.Cell>
-        <div />
-      </Table.Cell>
-      <Table.Cell>
-        <div>
-          <div />
-          <div />
+    <tr>
+      <td>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+        >
+          <div
+            style={{ display: "flex", flexDirection: "column" }}
+            className="menu-image"
+          ></div>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <h1 style={{ width: "200px" }}></h1>
+          </div>
         </div>
-      </Table.Cell>
-      <Table.Cell>
-        <div>
-          <div />
-          <div />
-        </div>
-      </Table.Cell>
-      <Table.Cell>
-        <div>
-          <div />
-        </div>
-      </Table.Cell>
-      <Table.Cell>
-        <div>
-          <div />
-        </div>
-      </Table.Cell>
-    </Table.Row>
+      </td>
+      <td></td>
+      <td>
+        <h1 style={{ width: "100%" }}></h1>
+      </td>
+      <td>
+        <h1 style={{ width: "100%" }}></h1>
+      </td>
+      <td>
+        <h1 style={{ width: "100%" }}></h1>
+      </td>
+    </tr>
   )
 }
 

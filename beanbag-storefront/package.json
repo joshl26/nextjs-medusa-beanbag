@@ -1,11 +1,16 @@
 {
-  "name": "medusa-next",
-  "version": "1.0.3",
+  "name": "beanbag-storefront",
+  "version": "0.0.1",
   "private": true,
-  "author": "Kasper Fabricius Kristensen <kasper@medusajs.com> (https://www.medusajs.com)",
-  "description": "Next.js starter to be used with Medusa server",
+  "author": "Josh Lehman (joshlehman.ca)",
+  "description": "Beanbag Coffee Co. - Ecommerce Project",
   "keywords": [
-    "medusa-storefront"
+    "sqlite",
+    "postgres",
+    "typescript",
+    "ecommerce",
+    "headless",
+    "medusa"
   ],
   "scripts": {
     "dev": "next dev -p 8000",

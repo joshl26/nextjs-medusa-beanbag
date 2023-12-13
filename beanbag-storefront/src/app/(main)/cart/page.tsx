@@ -1,5 +1,7 @@
 import CartTemplate from "@modules/cart/templates"
 import { Metadata } from "next"
+import { Suspense } from "react"
+import Loading from "./loading"
 
 export const metadata: Metadata = {
   title: "Cart",
@@ -7,5 +9,9 @@ export const metadata: Metadata = {
 }
 
 export default function Cart() {
-  return <CartTemplate />
+  return (
+    <Suspense fallback={<Loading />}>
+      <CartTemplate />
+    </Suspense>
+  )
 }

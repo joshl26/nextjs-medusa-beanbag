@@ -1,8 +1,9 @@
 {
-  "name": "medusa-starter-default",
+  "name": "beanbag-storefront",
   "version": "0.0.1",
-  "description": "A starter for Medusa projects.",
-  "author": "Medusa (https://medusajs.com)",
+  "private": true,
+  "author": "Josh Lehman (joshlehman.ca)",
+  "description": "Beanbag Coffee Co. - Ecommerce Project",
   "license": "MIT",
   "keywords": [
     "sqlite",

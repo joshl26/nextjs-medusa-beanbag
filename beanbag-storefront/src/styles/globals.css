@@ -180,7 +180,8 @@ tfoot th {
 .loading .menu-image,
 .loading .product-image,
 .loading .select-button,
-.loading .size-button {
+.loading .size-button,
+.loading .signin-button {
   background-color: rgb(var(--loading-grey));
   background: linear-gradient(
       100deg,
@@ -209,7 +210,7 @@ tfoot th {
 }
 
 .loading h1 {
-  height: 1.6rem;
+  height: 2rem;
   border-radius: var(--border-radius);
   animation-delay: 0.05s;
   margin: 10px 10px;
@@ -251,4 +252,15 @@ tfoot th {
   width: 50px !important;
   background-color: rgb(var(--loading-grey));
   color: black;
+}
+
+.loading .signin-button {
+  animation-delay: 0.05s;
+  border: transparent 2px solid;
+  margin: 0 auto;
+  height: 40px;
+  border-radius: 20px;
+  width: 100px;
+  background-color: rgb(var(--loading-grey));
+  color: transparent;
 }
