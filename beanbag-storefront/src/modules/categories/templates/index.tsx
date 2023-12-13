@@ -137,6 +137,7 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({
               <h3>{category.description}</h3>
             </div>
           )} */}
+
           {category.category_children && (
             <div>
               <ul>
@@ -148,6 +149,14 @@ const CategoryTemplate: React.FC<CategoryTemplateProps> = ({
                     <div className="divider"></div>
                     {/* </UnderlineLink> */}
                     <ul className={styles.row}>
+                      {isFetchingNextPage &&
+                        repeat(getNumberOfSkeletons(infiniteData?.pages)).map(
+                          (index) => (
+                            <li key={index}>
+                              <SkeletonProductPreview />
+                            </li>
+                          )
+                        )}
                       {all_categories
                         .filter(
                           (category) => category.parent_category?.name == c.name

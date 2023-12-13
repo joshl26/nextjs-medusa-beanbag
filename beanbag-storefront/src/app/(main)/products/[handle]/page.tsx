@@ -1,8 +1,9 @@
 import { getProductByHandle } from "@lib/data"
 import ProductTemplate from "@modules/products/templates"
-import SkeletonProductPage from "@modules/skeletons/templates/skeleton-product-page"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
+import { Suspense } from "react"
+import Loading from "./loading"
 
 type Props = {
   params: { handle: string }
@@ -33,5 +34,11 @@ export default async function ProductPage({ params }: Props) {
     notFound()
   })
 
-  return <ProductTemplate product={products[0]} />
+  return (
+    
+      <Suspense fallback={<Loading />}>
+        <ProductTemplate product={products[0]} />
+      </Suspense>
+    
+  )
 }

@@ -20,7 +20,9 @@ const SkeletonProductPreview = () => {
               </div>
             </div>
             <div className={styles.right_column}>
-              <div></div>
+              <div>
+                <h1></h1>
+              </div>
             </div>
             <div className={styles.spacer} />
           </div>

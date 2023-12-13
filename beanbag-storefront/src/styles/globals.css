@@ -177,7 +177,10 @@ tfoot th {
 
 .loading h2,
 .loading h1,
-.loading .menu-image {
+.loading .menu-image,
+.loading .product-image,
+.loading .select-button,
+.loading .size-button {
   background-color: rgb(var(--loading-grey));
   background: linear-gradient(
       100deg,
@@ -225,4 +228,27 @@ tfoot th {
   flex-direction: row;
   width: 250px;
   align-items: center;
+}
+
+.loading .product-image {
+  height: 400px;
+  width: 400px;
+  animation-delay: 0.05s;
+}
+
+.loading .select-button {
+  animation-delay: 0.05s;
+}
+
+.loading .size-button {
+  animation-delay: 0.05s;
+  border: transparent 2px solid;
+  margin: 0 auto;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  height: 40px;
+  border-radius: 20px;
+  width: 50px !important;
+  background-color: rgb(var(--loading-grey));
+  color: black;
 }
