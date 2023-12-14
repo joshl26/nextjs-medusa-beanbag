@@ -49,7 +49,7 @@ const ImageOrPlaceholder = ({
       <Image
         className={styles.image}
         src={image}
-        alt="Thumbnail"
+        alt={image}
         quality={25}
         width={0}
         height={0}

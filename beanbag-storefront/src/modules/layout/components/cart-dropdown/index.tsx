@@ -98,17 +98,13 @@ const CartDropdown = () => {
                     .sort((a, b) => {
                       return a.created_at > b.created_at ? -1 : 1
                     })
-                    .map((item) => (
-                      <>
-                        <div
-                          style={{ display: "flex", flexDirection: "row" }}
-                          key={item.id}
-                        >
+                    .map((item, idx) => (
+                      <div key={idx}>
+                        <div style={{ display: "flex", flexDirection: "row" }}>
                           <div
                             style={{ display: "flex", flexDirection: "column" }}
                           >
-                            <div className="spacer_small"></div>
-
+                            <div className="spacer_small"/>
                             <Link
                               href={`/products/${item.variant.product.handle}`}
                             >
@@ -125,8 +121,7 @@ const CartDropdown = () => {
                               flexDirection: "column",
                             }}
                           >
-                            <div className="spacer_small"></div>
-
+                            <div className="spacer_small"/>
                             <div>
                               <div style={{ paddingLeft: "0.5rem" }}>
                                 <LineItemPrice
@@ -172,7 +167,7 @@ const CartDropdown = () => {
                         <div className="spacer_small"></div>
                         <div className="spacer_small"></div>
                         <div className="spacer_small divider" />
-                      </>
+                      </div>
                     ))}
                 </div>
                 <div className="spacer_small " />
