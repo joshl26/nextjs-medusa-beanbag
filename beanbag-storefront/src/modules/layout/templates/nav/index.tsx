@@ -75,11 +75,7 @@ const Nav = () => {
               href="/account"
               buttonText="Account"
             /> */}
-            {/* <RoundButton
-              href="/join"
-              className={styles.button_joinnow}
-              buttonText="Join Now"
-            /> */}
+
             {/* <Hamburger setOpen={toggle} /> */}
           </div>
           <div className={styles.menu}>

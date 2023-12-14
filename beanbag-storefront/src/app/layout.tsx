@@ -9,6 +9,12 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://localhost:8000"),
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-US": "/en-US",
+    },
+  },
   title: "Beanbag Coffee Co.",
   description: "Curating authentic roasts from around the world",
 }
