@@ -1,9 +1,5 @@
 import { ProductCategoryWithChildren } from "@lib/data"
-import { ProductCollection, ProductCategory } from "@medusajs/medusa"
-import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
-import { Product } from "@medusajs/product"
 import Link from "next/link"
-import { MenuCardDataType } from "types/types"
 import MenuCard from "../menu-card"
 import styles from "./menu-items.module.css"
 // import ProductRail from "./product-rail"
@@ -22,8 +18,6 @@ const MenuItems = ({
   let atHomeCategories = product_categories.filter(
     (category) => category.parent_category?.name === "At Home"
   )
-
-  // console.log(drinkCategories)
 
   return (
     <section className={styles.menu_section}>

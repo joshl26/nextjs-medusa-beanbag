@@ -46,7 +46,7 @@ const MenuCard = ({ category }: any) => {
               sizes="100vw"
               crop="thumb"
               className={styles.image}
-              alt={filteredAtHomeProducts.imgUrl}
+              alt={filteredAtHomeProducts.alt}
               width={100}
               height={100}
               src={filteredAtHomeProducts.imgUrl}

@@ -32,6 +32,10 @@ module.exports = withStoreConfig({
         protocol: "https",
         hostname: "medusa-server-testing.s3.us-east-1.amazonaws.com",
       },
+      {
+        protocol: "http",
+        hostname: "res.cloudinary.com",
+      },
     ],
   },
 })

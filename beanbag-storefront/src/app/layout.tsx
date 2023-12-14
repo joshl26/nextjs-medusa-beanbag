@@ -8,6 +8,7 @@ const raleway = Raleway({ subsets: ["latin"], weight: ["100", "400"] })
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://localhost:8000"),
   title: "Beanbag Coffee Co.",
   description: "Curating authentic roasts from around the world",
 }
