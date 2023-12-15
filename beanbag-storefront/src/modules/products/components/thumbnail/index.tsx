@@ -1,7 +1,6 @@
 import { Image as MedusaImage } from "@medusajs/medusa"
-import { Container } from "@medusajs/ui"
 import PlaceholderImage from "@modules/common/icons/placeholder-image"
-import clsx from "clsx"
+// import clsx from "clsx"
 import Image from "next/image"
 import React from "react"
 import styles from "./thumbnail.module.css"
