@@ -1,5 +1,6 @@
 name: Cypress Tests
 
+
 on: push
 
 jobs:

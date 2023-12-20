@@ -50,7 +50,9 @@ const CartDropdown = () => {
               {!state ? (
                 <>
                   <Cart size={22} style={{ zIndex: "-1" }} />
-                  <p>{totalItems > 0 ? `(${totalItems})` : ""}</p>
+                  <p data-cy="cart_quantity">
+                    {totalItems > 0 ? `(${totalItems})` : ""}
+                  </p>
                 </>
               ) : (
                 ""
@@ -104,7 +106,7 @@ const CartDropdown = () => {
                           <div
                             style={{ display: "flex", flexDirection: "column" }}
                           >
-                            <div className="spacer_small"/>
+                            <div className="spacer_small" />
                             <Link
                               href={`/products/${item.variant.product.handle}`}
                             >
@@ -121,7 +123,7 @@ const CartDropdown = () => {
                               flexDirection: "column",
                             }}
                           >
-                            <div className="spacer_small"/>
+                            <div className="spacer_small" />
                             <div>
                               <div style={{ paddingLeft: "0.5rem" }}>
                                 <LineItemPrice

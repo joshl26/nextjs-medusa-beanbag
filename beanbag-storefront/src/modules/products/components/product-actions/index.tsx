@@ -33,8 +33,7 @@ const ProductActionsInner: React.FC<ProductActionsProps> = ({ product }) => {
     <section style={{ height: "40vh" }}>
       <div className="spacer"></div>
       <div>
-        {product.variants.length > 1 &&
-        product.collection?.title === "Hot Coffees" ? (
+        {product.variants.length > 1 && (
           <div>
             {(product.options || []).map((option) => {
               return (
@@ -49,22 +48,6 @@ const ProductActionsInner: React.FC<ProductActionsProps> = ({ product }) => {
               )
             })}
             <div className="divider"></div>
-          </div>
-        ) : (
-          <div>
-            {(product.options || []).map((option) => {
-              return (
-                <div key={option.id}>
-                  <OptionSelect
-                    option={option}
-                    current={options[option.id]}
-                    updateOption={updateOptions}
-                    title={option.title}
-                  />
-                </div>
-              )
-            })}
-            <Divider />
           </div>
         )}
       </div>
@@ -101,6 +84,7 @@ const ProductActionsInner: React.FC<ProductActionsProps> = ({ product }) => {
         }}
       >
         <Button
+          data-cy="add_to_cart"
           className={styles.button_style}
           onClick={addToCart}
           disabled={!inStock || !variant}

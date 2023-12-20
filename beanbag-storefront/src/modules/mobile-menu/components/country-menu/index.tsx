@@ -4,6 +4,7 @@ import useCountryOptions from "@lib/hooks/use-country-options"
 import ChevronDown from "@modules/common/icons/chevron-down"
 import X from "@modules/common/icons/x"
 import ReactCountryFlag from "react-country-flag"
+import styles from "./country-menu.module.css"
 
 const CountryMenu = () => {
   const {
@@ -20,7 +21,7 @@ const CountryMenu = () => {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       <div>
         <div>
           <button onClick={() => setScreen("main")}>
@@ -42,6 +43,7 @@ const CountryMenu = () => {
           {countryOptions?.map((option) => (
             <li key={option.country}>
               <button
+                data-cy={`select_country_${option.country}`}
                 onClick={() =>
                   handleSelectCountry(option.region, option.country)
                 }

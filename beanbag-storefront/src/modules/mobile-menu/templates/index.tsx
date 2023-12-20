@@ -12,6 +12,7 @@ const MobileMenu = () => {
   return (
     <Container>
       <div>
+        <h2>test</h2>
         {(() => {
           switch (currentScreen) {
             case "country":

@@ -5,6 +5,7 @@ import useToggleState from "@lib/hooks/use-toggle-state"
 import RoundButton from "@modules/common/components/round-button"
 import CartDropdown from "@modules/layout/components/cart-dropdown"
 import SideMenu from "@modules/layout/components/side-menu"
+import CountryMenu from "@modules/mobile-menu/components/country-menu"
 // import DropdownMenu from "@modules/layout/components/dropdown-menu"
 // import SideMenu from "@modules/layout/components/side-menu"
 import MobileMenu from "@modules/mobile-menu/templates"
@@ -31,11 +32,13 @@ const Nav = () => {
 
   return (
     <header className={styles.header}>
+      <MobileMenu />
+      <CountryMenu />
       <nav className={styles.header_nav}>
         <div className={styles.side_menu}>
           {menuEnabled ? <SideMenu setMenuEnabled={setMenuEnabled} /> : ""}
         </div>
-        <MobileMenu />
+
         <div className={styles.spacer} />
         <div className={styles.navbar}>
           <div className={styles.link_container}>

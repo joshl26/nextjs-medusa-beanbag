@@ -30,6 +30,7 @@ const DrinkSizeOptionSelect: React.FC<OptionSelectProps> = ({
               <button
                 onClick={() => updateOption({ [option.id]: v })}
                 className="button-style"
+                data-cy={`select_option_${v}`}
               >
                 {v}
               </button>
