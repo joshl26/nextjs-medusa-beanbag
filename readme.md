@@ -13,4 +13,3 @@ This project consist of 2 folders
 
 - [MedusaJS Website](https://medusajs.com/)
 - [MedusaJS Setup Guide](https://docs.medusajs.com/create-medusa-app)
-
