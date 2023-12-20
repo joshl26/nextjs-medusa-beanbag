@@ -1,48 +1,48 @@
 describe("Product page", () => {
   it("fetches product with handle [iced-chai-tea-latte]", () => {
-    cy.visit("products/iced-chai-tea-latte")
+    cy.visit("products/iced-chai-tea-latte", { timeout: 10000 })
 
     cy.get("h1").contains("Iced Chai Tea Latte")
   })
 
   it("adds a single product to the cart", () => {
-    cy.visit("products/iced-chai-tea-latte")
+    cy.visit("products/iced-chai-tea-latte", { timeout: 10000 })
 
-    cy.wait(4000)
+    // cy.wait(4000)
 
     cy.get("[data-cy=select_country_ca]").click()
 
-    cy.wait(2000)
+    // cy.wait(2000)
 
     cy.get("[data-cy=select_option_M]").click()
 
-    cy.wait(2000)
+    // cy.wait(2000)
 
-    cy.get("[data-cy=add_to_cart]").click()
+    cy.get("[data-cy=add_to_cart]").wait(4000).click()
 
     cy.wait(4000)
 
     cy.get("[data-cy=cart_quantity]").contains("1")
   })
 
-  it("adds two products to the cart", () => {
+  it("adds two products to the cart", { timeout: 10000 }, () => {
     cy.visit("products/iced-chai-tea-latte")
 
-    cy.wait(4000)
+    // cy.wait(4000)
 
     cy.get("[data-cy=select_country_ca]").click()
 
-    cy.wait(2000)
+    // cy.wait(2000)
 
     cy.get("[data-cy=select_option_M]").click()
 
-    cy.wait(2000)
+    // cy.wait(2000)
 
-    cy.get("[data-cy=add_to_cart]").click()
+    cy.get("[data-cy=add_to_cart]").wait(4000).click()
 
-    cy.wait(2000)
+    cy.wait(4000)
 
-    cy.get("[data-cy=add_to_cart]").click()
+    cy.get("[data-cy=add_to_cart]").wait(4000).click()
 
     cy.wait(4000)
 
