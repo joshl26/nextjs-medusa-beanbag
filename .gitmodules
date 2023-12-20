@@ -1,0 +1,3 @@
+[submodule "beanbag-backend"]
+	path = beanbag-backend
+	url = https://github.com/joshl26/beanbag-backend.git
