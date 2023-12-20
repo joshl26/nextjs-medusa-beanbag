@@ -1,3 +1,6 @@
 [submodule "beanbag-backend"]
 	path = beanbag-backend
 	url = https://github.com/joshl26/beanbag-backend.git
+[submodule "beanbag-storefront"]
+	path = beanbag-storefront
+	url = https://github.com/joshl26/beanbag-storefront.git
