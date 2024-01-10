@@ -1,3 +1,5 @@
+[![Beanbag Coffee](https://img.shields.io/endpoint?url=https://cloud.cypress.io/badge/detailed/f8fshe&style=flat&logo=cypress)](https://cloud.cypress.io/projects/f8fshe/runs)
+
 # Beanbag E-commerce Project
 
 To run this application you will need
