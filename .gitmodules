@@ -1,6 +1,6 @@
-[submodule "beanbag-backend"]
-	path = beanbag-backend
-	url = https://github.com/joshl26/beanbag-backend.git
-[submodule "beanbag-storefront"]
-	path = beanbag-storefront
-	url = https://github.com/joshl26/beanbag-storefront.git
+[submodule "beanbag-coffee-backend"]
+	path = beanbag-coffee-backend
+	url = https://github.com/joshl26/beanbag-coffee-backend.git
+[submodule "beanbag-coffee-storefront"]
+	path = beanbag-coffee-storefront
+	url = https://github.com/joshl26/beanbag-coffee-storefront.git
