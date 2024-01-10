@@ -11,6 +11,10 @@ This project consist of 2 folders
 - beanbag-backend: Medusa backend + admin portal
 - beanbag-storefront: Next.js storefront
 
+## LIVE SITE
+
+- [Live Demo Site](https://storefront-git-main-joshl26.vercel.app/)
+
 ## Web links
 
 - [MedusaJS Website](https://medusajs.com/)
