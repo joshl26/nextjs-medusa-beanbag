@@ -69,13 +69,23 @@ while also offering performance benefits.
 
 - Figma - is a cloud-based design and prototyping tool used for creating user interfaces, interactive prototypes, and collaborative workflow designs. It enables designers to work together in real-time on the same files and projects. Figma is popular among UI/UX designers for its versatility, ease of use, collaboration features, and compatibility across various platforms.
 
-## Problem
+## Features
 
-Prior to development, the Cleaner By Design store lacked certain dynamic features that could optimize user experience and streamline operations. The goal was to address these shortcomings through integration with a more flexible and scalable e-commerce system.
+- **Product Catalog Management**: The first step in setting up an e-commerce platform is creating a product catalog that includes all the available products or services offered by the company. Using MedusaJS's GraphQL API, developers can easily create product schemas for various types of products such as whole bean bags or ground coffee packs.
+
+- **User Authentication**: To ensure security and personalized shopping experiences, user authentication is implemented using JWT (JSON Web Token). This allows users to create accounts, log in securely to access their profile data and order history.
+
+- **Shopping Cart**: Customers can add products to their shopping cart while browsing through the website and have the option to edit or remove items before proceeding to checkout.
+
+- **Checkout Process**: The checkout process is a crucial part of any e-commerce platform, and MedusaJS makes it easy to integrate different payment gateways. Customers can choose their preferred payment option and complete their purchase securely.
+
+- **Multi-Currency Support**: As Beanbag Coffee Co. targets customers globally, the project includes multi-currency support using MedusaJS's currency conversion feature. This allows customers from different countries to view prices in their local currency.
+
+- **Order Management**: All orders are managed through the Medusa dashboard, where admins can track order status, manage inventory levels, and process refunds if needed.
 
 ## Challenges
 
-One major challenge was integrating real-time data updates frequently seen in stock levels or prices without performance penalties on user experiences – solved by efficiently structuring database calls through advanced SQL scripts paired effectively within our Redux state management flows implemented via hooks provided by Next.js framework itself.
+One major challenge while building this project was integrating the GraphQL API with React for seamless data communication between the front-end and back-end. However, with thorough documentation provided by MedusaJS and its active community support, this was overcome successfully. Another challenge was implementing server-side rendering for improved performance and SEO optimization. With MedusaJS's built-in server-side rendering capabilities powered by Next.js, this could be achieved seamlessly without much effort.
 
 ## Solutions
 
