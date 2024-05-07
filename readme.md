@@ -37,11 +37,15 @@
 ![ESLint](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)
 ![Prettier](https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E)
 ![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)
-![BuiltwithLove](http://ForTheBadge.com/images/badges/built-with-love.svg)
+![BuiltWithLove](http://ForTheBadge.com/images/badges/built-with-love.svg)
 
 ![Home page image](https://raw.githubusercontent.com/joshl26/joshl26/main/assets/beanbag-coffee-1.png)
 
-Beanbag Coffee Co. is an online Ecommerce store that sells artisanal roasted whole bean coffee to the public.
+Beanbag Coffee Co. is a headless e-commerce solution that provides a flexible framework for building custom e-commerce platforms. It offers features such as GraphQL API, server-side rendering, payment integrations, multi-currency support, and many others. The Beanbag Coffee Co. e-commerce project is a fully functional online store that allows customers to browse and purchase a variety of coffee
+products ranging from whole beans to ground coffee.
+
+This website is designed to be user-friendly and visually appealing, providing customers with an enjoyable shopping experience. The project uses MedusaJS as its core framework combined with other technologies such as NextJS for front-end development, Node.js for server-side rendering and PostgreSQL for the DB. This stack was chosen because it enables fast development of scalable applications
+while also offering performance benefits.
 
 ## Demo
 
@@ -49,15 +53,35 @@ Beanbag Coffee Co. is an online Ecommerce store that sells artisanal roasted who
 
 ## Technologies Utilized
 
-- HTML5 - A markup language for creating web pages and web applications.
+- HTML5 - is the fifth and current major version of HTML (HyperText Markup Language), the standard coding language used to build and design web pages. Introduced in 2014 by the World Wide Web Consortium (W3C), HTML5 includes new syntactical features that make it more efficient and powerful compared to earlier versions. It supports multimedia, graphical content, and better semantic capabilities, which allow for clearer code and improved accessibility.
 
-- CSS3 - used for describing the presentation of a document written in a markup language.
+- CSS3 - stands for Cascading Style Sheets Level 3. It's the latest evolution of the CSS language which defines styles for web pages, including design, layout and variations in display for different devices and screen sizes. CSS3 introduces a range of new features and capabilities aimed at improving the aesthetics and functionality of web content.
 
-- TypeScript - is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.
+- TypeScript - is an open-source programming language developed and maintained by Microsoft. It is a superset of JavaScript, adding optional static typing and class-based object-oriented programming to the language.
 
-- ReactJS - For building reactive/responsive web applications.
+- ReactJS - commonly known as React, is a powerful and widely-used JavaScript library for building user interfaces, particularly single-page applications where a fast and interactive user experience is essential.
 
 - Next.js - enables you to create full-stack Web applications by extending the latest React features, and integrating powerful Rust-based JavaScript tooling for the fastest builds.
+
+- PostgreSQL - is an advanced, open-source object-relational database system known for its robustness, scalability, and ability to handle large volumes of data. It supports both SQL (relational) and JSON (non-relational) querying.
+
+- TailwindCSS - is a utility-first CSS framework for rapid UI development. Unlike traditional CSS frameworks which provide predefined components, Tailwind allows developers to style their applications with low-level utility classes directly in the HTML, enabling high customizability and faster styling processes.
+
+- Figma - is a cloud-based design and prototyping tool used for creating user interfaces, interactive prototypes, and collaborative workflow designs. It enables designers to work together in real-time on the same files and projects. Figma is popular among UI/UX designers for its versatility, ease of use, collaboration features, and compatibility across various platforms.
+
+## Problem
+
+Prior to development, the Cleaner By Design store lacked certain dynamic features that could optimize user experience and streamline operations. The goal was to address these shortcomings through integration with a more flexible and scalable e-commerce system.
+
+## Challenges
+
+One major challenge was integrating real-time data updates frequently seen in stock levels or prices without performance penalties on user experiences – solved by efficiently structuring database calls through advanced SQL scripts paired effectively within our Redux state management flows implemented via hooks provided by Next.js framework itself.
+
+## Solutions
+
+- **Platform Migration**: Migrated existing product listings and customer data from old systems to leverage Medusa’s headless architecture.
+- **Customized Shopping Features**: Developed interactive UI enhancements using React on top of the headless commerce functionality provided by Medusa.
+- **Secure Payment Gateway Integration**: Ensured secure transactions with integrated payment options optimized for speed and protection against fraud.
 
 ## Screenshots
 
